@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772b08a64199147dfaab9559e83d85b7, type: 3}
+  m_Name: DevilCat
+  m_EditorClassIdentifier: 
+  therapySessionElements:
+  - questionAudioPath: 
+    answerChoices:
+    - No one is killing her - GTFO you pussy ass bitch.
+    - "Gotdam... I\u2019ll take the kill no question asked."
+    answerPaths:
+    - 
+    - 
+    responsePath: 
+    responseString: 
+    questionString: 
+    correctAnswer: No one is killing her - GTFO you pussy ass bitch.

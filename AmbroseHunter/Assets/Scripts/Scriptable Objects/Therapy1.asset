@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772b08a64199147dfaab9559e83d85b7, type: 3}
+  m_Name: Therapy1
+  m_EditorClassIdentifier: 
+  therapySessionElements:
+  - questionAudioPath: therapyQ1
+    answerChoices:
+    - I'm just hopin' I can make it through these hard times in one piece Dr. Tolstoy.
+    - Nothin much man, I'm just lookin' for some new ass, knowwhatimsayin?
+    answerPaths:
+    - NP_A1T
+    - NP_A1F
+    responsePath: therapyR1
+    responseString: 
+    questionString: 
+    correctAnswer: I'm just hopin' I can make it through these hard times in one piece
+      Dr. Tolstoy.
+  - questionAudioPath: therapyQ2
+    answerChoices:
+    - I'm worried that if this dude David don't help me out real quick, the feds gon
+      be on me.
+    - Nah man I'm over that shit man, ain't no one comin' after me.
+    answerPaths:
+    - NP_A2T
+    - NP_A2F
+    responsePath: therapyR2
+    responseString: 
+    questionString: 
+    correctAnswer: I'm worried that if this dude David don't help me out real quick,
+      the feds gon be on me.
+  - questionAudioPath: therapyQ3
+    answerChoices:
+    - What can I say papi... You can't turn a ho to a housewife.
+    - I know man. I'm tryna work on that - even though dem hoes ain't loyal.
+    answerPaths:
+    - NP_A2T
+    - NP_A2F
+    responsePath: therapyR2
+    responseString: 
+    questionString: 
+    correctAnswer: I know man. I'm tryna work on that - even though dem hoes ain't
+      loyal.
+  - questionAudioPath: therapyQ4
+    answerChoices:
+    - Whatever man. Gotta bring home the cash - if it ain't bad they ain't buyin.
+    - I feel you tio. Imma see if I can come up with some new shit on that level.
+    answerPaths:
+    - NP_A2T
+    - NP_A2F
+    responsePath: 
+    responseString: 
+    questionString: 
+    correctAnswer: I feel you tio. Imma see if I can come up with some new shit on
+      that level.
