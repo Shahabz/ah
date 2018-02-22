@@ -156,7 +156,7 @@ public class PlayerCar : CarMetrics
 		}
 	}
 
-	void HandleLeftStickVertical () {
+	    void HandleLeftStickVertical () {
 		//Car Acceleration
 		currThrust = 0.0f;
 		isAccelerating = false;
