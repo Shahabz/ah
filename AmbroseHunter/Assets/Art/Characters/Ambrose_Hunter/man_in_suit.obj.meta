@@ -1,0 +1,215 @@
+fileFormatVersion: 2
+guid: 275aecbd72da8f445b179d4e0911a9b9
+timeCreated: 1520319971
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: geo_L_up_eyelash_man
+    100002: geo_man_bands
+    100004: geo_man_body
+    100006: geo_man_down_hair
+    100008: geo_man_hair
+    100010: geo_man_L_down_eyelash
+    100012: geo_man_L_eye
+    100014: geo_man_L_eye_trans
+    100016: geo_man_R_down_eyelash
+    100018: geo_man_R_eye
+    100020: geo_man_R_eye_trans
+    100022: geo_man_R_up_eyelash
+    100024: geo_man_shoe
+    100026: geo_man_teeth
+    100028: //RootNode
+    100030: shirt_suit_geo
+    100032: suit_geo_button
+    100034: suit_geo_coat
+    100036: suit_geo_jean
+    100038: suit_geo_pocket
+    100040: suit_geo_small_pocket
+    100042: suit_geo_tie
+    400000: geo_L_up_eyelash_man
+    400002: geo_man_bands
+    400004: geo_man_body
+    400006: geo_man_down_hair
+    400008: geo_man_hair
+    400010: geo_man_L_down_eyelash
+    400012: geo_man_L_eye
+    400014: geo_man_L_eye_trans
+    400016: geo_man_R_down_eyelash
+    400018: geo_man_R_eye
+    400020: geo_man_R_eye_trans
+    400022: geo_man_R_up_eyelash
+    400024: geo_man_shoe
+    400026: geo_man_teeth
+    400028: //RootNode
+    400030: shirt_suit_geo
+    400032: suit_geo_button
+    400034: suit_geo_coat
+    400036: suit_geo_jean
+    400038: suit_geo_pocket
+    400040: suit_geo_small_pocket
+    400042: suit_geo_tie
+    2100000: geo_L_up_eyelash_manMat
+    2100002: geo_man_bandsMat
+    2100004: geo_man_bodyMat
+    2100006: geo_man_down_hairMat
+    2100008: geo_man_hairMat
+    2100010: geo_man_L_down_eyelashMat
+    2100012: geo_man_L_eyeMat
+    2100014: geo_man_L_eye_transMat
+    2100016: geo_man_R_down_eyelashMat
+    2100018: geo_man_R_eyeMat
+    2100020: geo_man_R_eye_transMat
+    2100022: geo_man_R_up_eyelashMat
+    2100024: geo_man_shoeMat
+    2100026: geo_man_teethMat
+    2100028: shirt_suit_geoMat
+    2100030: suit_geo_buttonMat
+    2100032: suit_geo_coatMat
+    2100034: suit_geo_jeanMat
+    2100036: suit_geo_pocketMat
+    2100038: suit_geo_small_pocketMat
+    2100040: suit_geo_tieMat
+    2300000: geo_L_up_eyelash_man
+    2300002: geo_man_bands
+    2300004: geo_man_body
+    2300006: geo_man_down_hair
+    2300008: geo_man_hair
+    2300010: geo_man_L_down_eyelash
+    2300012: geo_man_L_eye
+    2300014: geo_man_L_eye_trans
+    2300016: geo_man_R_down_eyelash
+    2300018: geo_man_R_eye
+    2300020: geo_man_R_eye_trans
+    2300022: geo_man_R_up_eyelash
+    2300024: geo_man_shoe
+    2300026: geo_man_teeth
+    2300028: shirt_suit_geo
+    2300030: suit_geo_button
+    2300032: suit_geo_coat
+    2300034: suit_geo_jean
+    2300036: suit_geo_pocket
+    2300038: suit_geo_small_pocket
+    2300040: suit_geo_tie
+    3300000: geo_L_up_eyelash_man
+    3300002: geo_man_bands
+    3300004: geo_man_body
+    3300006: geo_man_down_hair
+    3300008: geo_man_hair
+    3300010: geo_man_L_down_eyelash
+    3300012: geo_man_L_eye
+    3300014: geo_man_L_eye_trans
+    3300016: geo_man_R_down_eyelash
+    3300018: geo_man_R_eye
+    3300020: geo_man_R_eye_trans
+    3300022: geo_man_R_up_eyelash
+    3300024: geo_man_shoe
+    3300026: geo_man_teeth
+    3300028: shirt_suit_geo
+    3300030: suit_geo_button
+    3300032: suit_geo_coat
+    3300034: suit_geo_jean
+    3300036: suit_geo_pocket
+    3300038: suit_geo_small_pocket
+    3300040: suit_geo_tie
+    4300000: geo_L_up_eyelash_man
+    4300002: geo_man_bands
+    4300004: geo_man_body
+    4300006: geo_man_down_hair
+    4300008: geo_man_hair
+    4300010: geo_man_L_down_eyelash
+    4300012: geo_man_L_eye
+    4300014: geo_man_L_eye_trans
+    4300016: geo_man_R_down_eyelash
+    4300018: geo_man_R_eye
+    4300020: geo_man_R_eye_trans
+    4300022: geo_man_R_up_eyelash
+    4300024: geo_man_shoe
+    4300026: geo_man_teeth
+    4300028: shirt_suit_geo
+    4300030: suit_geo_button
+    4300032: suit_geo_coat
+    4300034: suit_geo_jean
+    4300036: suit_geo_pocket
+    4300038: suit_geo_small_pocket
+    4300040: suit_geo_tie
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

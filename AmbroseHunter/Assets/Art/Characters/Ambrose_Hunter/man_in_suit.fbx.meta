@@ -1,0 +1,293 @@
+fileFormatVersion: 2
+guid: 30667b2504f95304bb59efa0ebe200e4
+timeCreated: 1520319976
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: bands
+    100002: body
+    100004: button
+    100006: coat
+    100008: down_hair
+    100010: eye_L1
+    100012: eye_R1
+    100014: eyelashe
+    100016: eyelashe1
+    100018: group2
+    100020: hair
+    100022: jean
+    100024: L_down_eyelash
+    100026: L_eye
+    100028: L_eye_trans
+    100030: L_up_eyelash
+    100032: man
+    100034: //RootNode
+    100036: pocket
+    100038: R_down_eyelash
+    100040: R_eye
+    100042: R_eye_trans
+    100044: R_up_eyelash
+    100046: shirt
+    100048: shoe
+    100050: small_pocket
+    100052: suit
+    100054: teeth
+    100056: tie
+    400000: bands
+    400002: body
+    400004: button
+    400006: coat
+    400008: down_hair
+    400010: eye_L1
+    400012: eye_R1
+    400014: eyelashe
+    400016: eyelashe1
+    400018: group2
+    400020: hair
+    400022: jean
+    400024: L_down_eyelash
+    400026: L_eye
+    400028: L_eye_trans
+    400030: L_up_eyelash
+    400032: man
+    400034: //RootNode
+    400036: pocket
+    400038: R_down_eyelash
+    400040: R_eye
+    400042: R_eye_trans
+    400044: R_up_eyelash
+    400046: shirt
+    400048: shoe
+    400050: small_pocket
+    400052: suit
+    400054: teeth
+    400056: tie
+    2100000: shirt_mtl
+    2100002: tie_mtl
+    2100004: suit_mtl
+    2100006: botton_mtl
+    2100008: suit_mtl1
+    2100010: eyelash_mtl
+    2100012: galss_eye_mtl
+    2100014: eye_mtl
+    2100016: hair_mtl1
+    2100018: hair_mtl
+    2100020: teeth_gum_mtl
+    2100022: body_mtl
+    2100024: band_mtl
+    2100026: shoe_mtl
+    2300000: bands
+    2300002: body
+    2300004: button
+    2300006: coat
+    2300008: down_hair
+    2300010: hair
+    2300012: jean
+    2300014: L_down_eyelash
+    2300016: L_eye
+    2300018: L_eye_trans
+    2300020: L_up_eyelash
+    2300022: pocket
+    2300024: R_down_eyelash
+    2300026: R_eye
+    2300028: R_eye_trans
+    2300030: R_up_eyelash
+    2300032: shirt
+    2300034: shoe
+    2300036: small_pocket
+    2300038: teeth
+    2300040: tie
+    3300000: bands
+    3300002: body
+    3300004: button
+    3300006: coat
+    3300008: down_hair
+    3300010: hair
+    3300012: jean
+    3300014: L_down_eyelash
+    3300016: L_eye
+    3300018: L_eye_trans
+    3300020: L_up_eyelash
+    3300022: pocket
+    3300024: R_down_eyelash
+    3300026: R_eye
+    3300028: R_eye_trans
+    3300030: R_up_eyelash
+    3300032: shirt
+    3300034: shoe
+    3300036: small_pocket
+    3300038: teeth
+    3300040: tie
+    4300000: shirt
+    4300002: tie
+    4300004: small_pocket
+    4300006: pocket
+    4300008: button
+    4300010: coat
+    4300012: jean
+    4300014: L_up_eyelash
+    4300016: L_down_eyelash
+    4300018: R_up_eyelash
+    4300020: R_down_eyelash
+    4300022: L_eye_trans
+    4300024: L_eye
+    4300026: R_eye_trans
+    4300028: R_eye
+    4300030: down_hair
+    4300032: hair
+    4300034: teeth
+    4300036: body
+    4300038: bands
+    4300040: shoe
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: band_mtl
+    second: {fileID: 2100000, guid: a115d2d5e60cae948b3d5482ae7d9735, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body_mtl
+    second: {fileID: 2100000, guid: fcb07bb2b4a38764bb62f542b368d097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: botton_mtl
+    second: {fileID: 2100000, guid: ab0e9de5015436741bb71606fc44fc4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_mtl
+    second: {fileID: 2100000, guid: 5947eaf019f509d4280bb2ce1a096bec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyelash_mtl
+    second: {fileID: 2100000, guid: c183137a310bd174093b051df8c9d2f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: galss_eye_mtl
+    second: {fileID: 2100000, guid: 810eb05b93b9102499c8b39d90e0935f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair_mtl
+    second: {fileID: 2100000, guid: aef15f9d4b01af146a5f2d79375b0024, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hair_mtl1
+    second: {fileID: 2100000, guid: 04328edd535da32488ea02d6391595e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shirt_mtl
+    second: {fileID: 2100000, guid: 929dc2230a8ac014a90ad5a6e85eae46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoe_mtl
+    second: {fileID: 2100000, guid: 07a7dcb8511f06646be63fd864ea9993, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suit_mtl
+    second: {fileID: 2100000, guid: 0db125ee75ff964448f1f52f9bd8fcfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: suit_mtl1
+    second: {fileID: 2100000, guid: cc71be56e63d2f54db01873b46ff0777, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teeth_gum_mtl
+    second: {fileID: 2100000, guid: dc7a5792459d1654f8b0b4aa4f08dfb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tie_mtl
+    second: {fileID: 2100000, guid: d2d6c11b5a8244e43979583313075f72, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

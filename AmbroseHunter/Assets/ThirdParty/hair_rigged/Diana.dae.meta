@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: ae401b34146564d4e9bec90580772040
+timeCreated: 1520315178
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Avatar
+    100002: BELLY
+    100004: BUTT
+    100006: CHEST
+    100008: //RootNode
+    100010: HEAD
+    100012: L_CLAVICLE
+    100014: L_FOOT
+    100016: L_HAND
+    100018: L_LOWER_ARM
+    100020: L_LOWER_LEG
+    100022: L_UPPER_ARM
+    100024: L_UPPER_LEG
+    100026: LEFT_HANDLE
+    100028: LEFT_PEC
+    100030: LOWER_BACK
+    100032: mAnkleLeft
+    100034: mAnkleRight
+    100036: mChest
+    100038: mCollarLeft
+    100040: mCollarRight
+    100042: mElbowLeft
+    100044: mElbowRight
+    100046: mEyeLeft
+    100048: mEyeRight
+    100050: mFootLeft
+    100052: mFootRight
+    100054: mHead
+    100056: mHipLeft
+    100058: mHipRight
+    100060: mKneeLeft
+    100062: mKneeRight
+    100064: mNeck
+    100066: mPelvis
+    100068: mShoulderLeft
+    100070: mShoulderRight
+    100072: mSkull
+    100074: mToeLeft
+    100076: mToeRight
+    100078: mTorso
+    100080: mWristLeft
+    100082: mWristRight
+    100084: NECK
+    100086: PELVIS
+    100088: R_CLAVICLE
+    100090: R_FOOT
+    100092: R_HAND
+    100094: R_LOWER_ARM
+    100096: R_LOWER_LEG
+    100098: R_UPPER_ARM
+    100100: R_UPPER_LEG
+    100102: RIGHT_HANDLE
+    100104: RIGHT_PEC
+    100106: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_004_000
+    100108: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_005_000
+    100110: UPPER_BACK
+    400000: Avatar
+    400002: BELLY
+    400004: BUTT
+    400006: CHEST
+    400008: //RootNode
+    400010: HEAD
+    400012: L_CLAVICLE
+    400014: L_FOOT
+    400016: L_HAND
+    400018: L_LOWER_ARM
+    400020: L_LOWER_LEG
+    400022: L_UPPER_ARM
+    400024: L_UPPER_LEG
+    400026: LEFT_HANDLE
+    400028: LEFT_PEC
+    400030: LOWER_BACK
+    400032: mAnkleLeft
+    400034: mAnkleRight
+    400036: mChest
+    400038: mCollarLeft
+    400040: mCollarRight
+    400042: mElbowLeft
+    400044: mElbowRight
+    400046: mEyeLeft
+    400048: mEyeRight
+    400050: mFootLeft
+    400052: mFootRight
+    400054: mHead
+    400056: mHipLeft
+    400058: mHipRight
+    400060: mKneeLeft
+    400062: mKneeRight
+    400064: mNeck
+    400066: mPelvis
+    400068: mShoulderLeft
+    400070: mShoulderRight
+    400072: mSkull
+    400074: mToeLeft
+    400076: mToeRight
+    400078: mTorso
+    400080: mWristLeft
+    400082: mWristRight
+    400084: NECK
+    400086: PELVIS
+    400088: R_CLAVICLE
+    400090: R_FOOT
+    400092: R_HAND
+    400094: R_LOWER_ARM
+    400096: R_LOWER_LEG
+    400098: R_UPPER_ARM
+    400100: R_UPPER_LEG
+    400102: RIGHT_HANDLE
+    400104: RIGHT_PEC
+    400106: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_004_000
+    400108: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_005_000
+    400110: UPPER_BACK
+    2100000: No Name
+    4300000: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_004_000
+    4300002: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_005_000
+    9500000: //RootNode
+    13700000: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_004_000
+    13700002: s4studio_mesh_2_geom_000_s4studio_mesh_2_geom_005_000
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
