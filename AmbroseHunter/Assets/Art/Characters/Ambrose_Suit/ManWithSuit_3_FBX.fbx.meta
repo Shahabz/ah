@@ -1,0 +1,279 @@
+fileFormatVersion: 2
+guid: 99b04c4267fbe3947811c8476631c96b
+timeCreated: 1520437238
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: man_in_suit:bands
+    100002: man_in_suit:bands_MeshPart0
+    100004: man_in_suit:bands_MeshPart1
+    100006: man_in_suit:body
+    100008: man_in_suit:body_MeshPart0
+    100010: man_in_suit:body_MeshPart1
+    100012: man_in_suit:button
+    100014: man_in_suit:coat
+    100016: man_in_suit:down_hair
+    100018: man_in_suit:eye_L1
+    100020: man_in_suit:eye_R1
+    100022: man_in_suit:eyelashe
+    100024: man_in_suit:eyelashe1
+    100026: man_in_suit:geo
+    100028: man_in_suit:group2
+    100030: man_in_suit:hair
+    100032: man_in_suit:jean
+    100034: man_in_suit:L_down_eyelash
+    100036: man_in_suit:L_eye
+    100038: man_in_suit:L_up_eyelash
+    100040: man_in_suit:light
+    100042: man_in_suit:man
+    100044: man_in_suit:pocket
+    100046: man_in_suit:R_down_eyelash
+    100048: man_in_suit:R_eye
+    100050: man_in_suit:R_up_eyelash
+    100052: man_in_suit:shirt
+    100054: man_in_suit:shoe
+    100056: man_in_suit:small_pocket
+    100058: man_in_suit:suit
+    100060: man_in_suit:teeth
+    100062: man_in_suit:tie
+    100064: //RootNode
+    400000: man_in_suit:bands
+    400002: man_in_suit:bands_MeshPart0
+    400004: man_in_suit:bands_MeshPart1
+    400006: man_in_suit:body
+    400008: man_in_suit:body_MeshPart0
+    400010: man_in_suit:body_MeshPart1
+    400012: man_in_suit:button
+    400014: man_in_suit:coat
+    400016: man_in_suit:down_hair
+    400018: man_in_suit:eye_L1
+    400020: man_in_suit:eye_R1
+    400022: man_in_suit:eyelashe
+    400024: man_in_suit:eyelashe1
+    400026: man_in_suit:geo
+    400028: man_in_suit:group2
+    400030: man_in_suit:hair
+    400032: man_in_suit:jean
+    400034: man_in_suit:L_down_eyelash
+    400036: man_in_suit:L_eye
+    400038: man_in_suit:L_up_eyelash
+    400040: man_in_suit:light
+    400042: man_in_suit:man
+    400044: man_in_suit:pocket
+    400046: man_in_suit:R_down_eyelash
+    400048: man_in_suit:R_eye
+    400050: man_in_suit:R_up_eyelash
+    400052: man_in_suit:shirt
+    400054: man_in_suit:shoe
+    400056: man_in_suit:small_pocket
+    400058: man_in_suit:suit
+    400060: man_in_suit:teeth
+    400062: man_in_suit:tie
+    400064: //RootNode
+    2300000: man_in_suit:bands_MeshPart0
+    2300002: man_in_suit:bands_MeshPart1
+    2300004: man_in_suit:body_MeshPart0
+    2300006: man_in_suit:body_MeshPart1
+    2300008: man_in_suit:button
+    2300010: man_in_suit:coat
+    2300012: man_in_suit:down_hair
+    2300014: man_in_suit:hair
+    2300016: man_in_suit:jean
+    2300018: man_in_suit:L_down_eyelash
+    2300020: man_in_suit:L_eye
+    2300022: man_in_suit:L_up_eyelash
+    2300024: man_in_suit:pocket
+    2300026: man_in_suit:R_down_eyelash
+    2300028: man_in_suit:R_eye
+    2300030: man_in_suit:R_up_eyelash
+    2300032: man_in_suit:shirt
+    2300034: man_in_suit:shoe
+    2300036: man_in_suit:small_pocket
+    2300038: man_in_suit:teeth
+    2300040: man_in_suit:tie
+    3300000: man_in_suit:bands_MeshPart0
+    3300002: man_in_suit:bands_MeshPart1
+    3300004: man_in_suit:body_MeshPart0
+    3300006: man_in_suit:body_MeshPart1
+    3300008: man_in_suit:button
+    3300010: man_in_suit:coat
+    3300012: man_in_suit:down_hair
+    3300014: man_in_suit:hair
+    3300016: man_in_suit:jean
+    3300018: man_in_suit:L_down_eyelash
+    3300020: man_in_suit:L_eye
+    3300022: man_in_suit:L_up_eyelash
+    3300024: man_in_suit:pocket
+    3300026: man_in_suit:R_down_eyelash
+    3300028: man_in_suit:R_eye
+    3300030: man_in_suit:R_up_eyelash
+    3300032: man_in_suit:shirt
+    3300034: man_in_suit:shoe
+    3300036: man_in_suit:small_pocket
+    3300038: man_in_suit:teeth
+    3300040: man_in_suit:tie
+    4300000: man_in_suit:shoe
+    4300002: man_in_suit:bands_MeshPart0
+    4300004: man_in_suit:bands_MeshPart1
+    4300006: man_in_suit:body_MeshPart0
+    4300008: man_in_suit:body_MeshPart1
+    4300010: man_in_suit:teeth
+    4300012: man_in_suit:hair
+    4300014: man_in_suit:down_hair
+    4300016: man_in_suit:R_eye
+    4300018: man_in_suit:L_eye
+    4300020: man_in_suit:R_down_eyelash
+    4300022: man_in_suit:R_up_eyelash
+    4300024: man_in_suit:L_down_eyelash
+    4300026: man_in_suit:L_up_eyelash
+    4300028: man_in_suit:jean
+    4300030: man_in_suit:coat
+    4300032: man_in_suit:button
+    4300034: man_in_suit:pocket
+    4300036: man_in_suit:small_pocket
+    4300038: man_in_suit:tie
+    4300040: man_in_suit:shirt
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_band_mtl
+    second: {fileID: 2100000, guid: 828ba2d867ea8394688f860d5dbab96b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_body_mtl
+    second: {fileID: 2100000, guid: cf315e59dba799a4cb2b0b4e5cf93b9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_botton_mtl
+    second: {fileID: 2100000, guid: 36c397e99295e7a45b2b842748a333f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_eye_mtl
+    second: {fileID: 2100000, guid: 752154d4193eb6e40a7d9c9eef956987, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_eyelash_mtl
+    second: {fileID: 2100000, guid: 1bb1b824fc28e04498f712ff1275d2e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_hair_mtl
+    second: {fileID: 2100000, guid: d093fe357a1285f4b8dd5511aad7f826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_hair_mtl1
+    second: {fileID: 2100000, guid: b9fa498f3e5baef46bbef228354d490f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_shirt_mtl
+    second: {fileID: 2100000, guid: d98eccea12c0bf240b002e6c6346c315, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_shoe_mtl
+    second: {fileID: 2100000, guid: 8d7b9c154e295dd4c9f1395488e45f8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_suit_mtl
+    second: {fileID: 2100000, guid: b33fdd901a71ed54fa40ca1f2e46bd42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_suit_mtl1
+    second: {fileID: 2100000, guid: 3014f9e299a84cb4f8c07449a233ae92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_teeth_gum_mtl
+    second: {fileID: 2100000, guid: 3e11d8e5472de354ba244c6c3e926e1b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: man_in_suit_tie_mtl
+    second: {fileID: 2100000, guid: 52b6b4f19c3b27e419cea65400f0714b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
