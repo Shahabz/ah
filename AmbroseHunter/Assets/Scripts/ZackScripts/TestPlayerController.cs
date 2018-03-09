@@ -18,7 +18,6 @@ public class TestPlayerController : MonoBehaviour {
 	public float sprintSpeedMod = 1.8f;
 	public float turnSpeed = 0.6f;
 
-	bool isApplyingSprintAnxiety;
 
 	Animator anim;
     //	public Animator topAnimator;
@@ -27,7 +26,6 @@ public class TestPlayerController : MonoBehaviour {
 	Rigidbody rigidbody;
 	public Transform cameraObj;
     public Camera gameplayCamera;
-	LineRenderer laserTarget;
 
 	public AudioClip[] allBarks;
 	public AudioSource barkSource;
@@ -71,10 +69,7 @@ public class TestPlayerController : MonoBehaviour {
 	public enum InputLock { CameraOnly, Locked, Unlocked }
 	public InputLock lockInput = InputLock.Unlocked;
 
-	Transform laserEnd;
-	[SerializeField]
-	GameObject hostageCatChildObj, bloodGunshotParticleFX;
-	GameObject currentWhoDunitHeldHostage;
+
 	GameObject heldObject;
 
 	float runAnxietyTime = 10f, runAnxietyTimer;
@@ -104,12 +99,6 @@ public class TestPlayerController : MonoBehaviour {
 		input = GetComponent<BaseInput>();
 		rigidbody = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
-		laserTarget = GetComponentInChildren<LineRenderer>();
-
-
-		laserEnd = cameraObj.Find("LaserEnd");
-		GetComponent<RootMotion.FinalIK.AimIK>().solver.target = GetComponent<RootMotion.FinalIK.LookAtIK>().solver.target = laserEnd;
-		GetComponent<RootMotion.FinalIK.AimIK>().solver.transform = laserTarget.transform.parent.Find("FirePos");
 	}
 	
 	void Update () {
@@ -127,42 +116,8 @@ public class TestPlayerController : MonoBehaviour {
 			SetPlayerMode (PlayerMode.Normal);
 			bSwitch_Normal = false;
 		}
-		else {
-		switch (thisPlayerMode){
-			case PlayerMode.Normal:
-				if (thisPlayerMode == PlayerMode.Normal) {
-					if (lockInput == InputLock.Locked)
-						return;
-
-					if (lockInput == InputLock.Unlocked) {
-
-						HandleMovement ();
-						HandleAiming ();
-						HandleInteraction ();
-						if (input.reload) {
-							GetComponent<WeaponManager> ().Reload ();
-						}
-
-					}
-				}
-			break;
-		case PlayerMode.InteractiveCutscene:
-			
-			if (NPInputManager.input.Fire.WasPressed) {
-				ReleaseCatHostage (true);
-			}
-			else if (NPInputManager.input.Interact.WasPressed) {
-				ReleaseCatHostage (false);
-			}
-			break;
-		case PlayerMode.Death:
-				if (NPInputManager.input.Interact.WasPressed || NPInputManager.input.Menu) {
-				SceneManager.LoadScene (SceneManager.GetActiveScene().name); 
-			}
-			break;
-		}
 	}
-	}
+
 	public void FixedUpdate() {
 		if(lockInput == InputLock.Locked)
 			return;
@@ -289,85 +244,6 @@ public class TestPlayerController : MonoBehaviour {
 		}
 	}
 
-	public void HandleAiming() {
-			anim.SetBool ("Aim", input.aim);
-			if (input.aim) {
-				gameplayCamera.GetComponent<CameraFollow> ().zoomedIn = true;
-
-				Vector3 targetPos = transform.Find ("CameraTarget").localPosition;
-				targetPos.x = 0.5f;
-				transform.Find ("CameraTarget").localPosition = Vector3.Lerp (transform.Find ("CameraTarget").localPosition, targetPos, Time.deltaTime * 4f);
-                //TODO move camera in
-
-
-				Vector3 lookDir = Vector3.zero;
-//				lookDir += (transform.position - cameraObj.transform.position).normalized * Mathf.Sign (input.moveDir.z);
-//				lookDir += Vector3.Cross (transform.up, (transform.position - cameraObj.transform.position).normalized) * Mathf.Sign (input.moveDir.x);
-//				lookDir.Normalize ();
-                lookDir = Camera.main.transform.forward;
-            lookDir.y = 0.0f;
-				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (lookDir), 15f * Time.deltaTime);
-
-				//			RaycastHit hit = new RaycastHit(); 
-				//			if(Physics.Raycast(gameplayCamera.ScreenPointToRay(Input.mousePosition), out hit)) {
-				laserTarget.gameObject.SetActive (true);
-//				Vector3 laserEnd;
-				RaycastHit hit;
-				if (Physics.Raycast (Camera.main.ScreenPointToRay (new Vector3 (Screen.width / 2f, Screen.height / 2f)), out hit, 100f, LayerMask.GetMask ("Default"))) {
-					laserEnd.position = Vector3.Lerp (laserEnd.position, hit.point, Time.deltaTime * 8f);
-				}
-//			else {
-//					laserEnd.position = Vector3.Lerp (laserEnd.position, laserTarget.transform.position + (laserTarget.transform.up * 50f), Time.deltaTime * 8f);
-//				}
-
-				laserTarget.SetPositions (new Vector3[] {
-					laserTarget.transform.position,
-					laserTarget.transform.position + laserTarget.transform.up * 30f
-//					laserEnd.position
-				});
-				//			if(Mathf.Abs(transform.eulerAngles.y - Quaternion.Lerp(transform.rotation, Quaternion.LookRotation (lookDir), 11f*Time.deltaTime).eulerAngles.y) < 3f) {
-				//				GetComponent<RootMotion.FinalIK.LookAtIK>().enabled = false;
-				//				GetComponent<RootMotion.FinalIK.AimIK>().enabled = true;
-				//			}
-				//			}
-
-				if (lockInput == InputLock.Unlocked) { //Could be cleaner than checking for this here
-					if (input.shoot) {
-						if (GetComponent<WeaponManager> ().CanFire ()) {
-							anim.SetTrigger ("Fire");
-							GetComponent<WeaponManager> ().Fire ();
-							cameraObj.GetComponent<CameraFollow> ().Recoil (GetComponent<WeaponManager> ().CurrentWeapon.recoil);
-						}
-					}
-					if (input.melee) {
-						anim.SetTrigger ("punch");
-						GetComponent<WeaponManager> ().Melee ();
-
-						GetComponent<RootMotion.FinalIK.LookAtIK> ().enabled = false;
-						GetComponent<RootMotion.FinalIK.AimIK> ().enabled = false;
-					}
-				}
-
-			} else {
-				gameplayCamera.GetComponent<CameraFollow> ().zoomedIn = false;
-				Vector3 targetPos = transform.Find ("CameraTarget").localPosition;
-				targetPos.x = 0f;
-				transform.Find ("CameraTarget").localPosition = Vector3.Lerp (transform.Find ("CameraTarget").localPosition, targetPos, Time.deltaTime * 4f);
-
-
-				//Do i care about this every frame?
-				laserTarget.gameObject.SetActive (false);
-				GetComponent<RootMotion.FinalIK.LookAtIK> ().enabled = true;
-				GetComponent<RootMotion.FinalIK.AimIK> ().enabled = false;
-			}
-		
-	}
-
-	public void AimDone() {
-		GetComponent<RootMotion.FinalIK.LookAtIK>().enabled = false;
-		GetComponent<RootMotion.FinalIK.AimIK>().enabled = true;
-	}
-
     public void EnterTherapy ()
     {
 		TestUIManager.instance.SetState(TestUIManager.UIState.Cutscene);
@@ -381,36 +257,7 @@ public class TestPlayerController : MonoBehaviour {
 //		lockInput = InputLock.Unlocked;
         anim.SetTrigger("stand");
     }
-
-	public void HoldCatHostage(GameObject thisCat) {
-		currentWhoDunitHeldHostage = thisCat;
-		hostageCatChildObj.SetActive (true);
-		anim.SetTrigger ("hostage");
-		TextManager.s_instance.SetPrompt ("Press F to Release Cat\n Click to Kill It", 6f);
-		bSwitch_InteractiveCutscene = true;
 		
-	}
-
-	public void ReleaseCatHostage(bool killHostage = false) {
-		if (killHostage) {
-			bloodGunshotParticleFX.SetActive (true);
-			hostageCatChildObj.transform.parent = null;
-			hostageCatChildObj.AddComponent<Rigidbody> ();
-			hostageCatChildObj.GetComponent<Rigidbody> ().useGravity = true;
-			hostageCatChildObj.GetComponent<CapsuleCollider> ().enabled = true;
-			currentWhoDunitHeldHostage.GetComponent<WhodunitCat> ().KillCat ();
-
-		} else {
-			hostageCatChildObj.SetActive (false);
-			currentWhoDunitHeldHostage.GetComponent<WhodunitCat> ().ReleaseHostage ();
-		}
-		currentWhoDunitHeldHostage = null;
-		anim.SetTrigger ("hostage");
-		TextManager.s_instance.SetPrompt ("", 6f);
-		bSwitch_Normal = true;
-
-	}
-
 	public void GrabAndSwallowPills (GameObject thesePills) {
 		anim.SetTrigger ("pills");
 		bSwitch_Cutscene = true;

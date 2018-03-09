@@ -16,7 +16,6 @@ public class WhodunitCat : CatLogic {
 	// Use this for initialization
 	void Start () {
 		base.Start ();
-		GetComponent<DialogueSystem> ().onDialogueEnd.AddListener (OnDialogueEnd);
 		canCauseStress = false;
 	}
 	
@@ -45,16 +44,6 @@ public class WhodunitCat : CatLogic {
 				hasPlayerHeardThisStory = true;
 			}
 		}
-	}
-
-	public void HoldMeHostage() {
-		TestPlayerController.s_instance.HoldCatHostage (gameObject);
-		transform.GetChild(0).gameObject.SetActive(false);
-
-	}
-
-	public void OnDialogueEnd() {
-		HoldMeHostage ();
 	}
 
 
