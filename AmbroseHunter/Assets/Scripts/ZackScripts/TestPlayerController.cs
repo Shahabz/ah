@@ -25,7 +25,6 @@ public class TestPlayerController : MonoBehaviour {
     FootstepHandler footstepHandler;
 	Rigidbody rigidbody;
 	public Transform cameraObj;
-    public Camera gameplayCamera;
 
 	public AudioClip[] allBarks;
 	public AudioSource barkSource;
@@ -102,7 +101,7 @@ public class TestPlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-
+		HandleMovement ();
 		//had to make this block of code to avoid loop glitches
 		if (bSwitch_InteractiveCutscene) {
 			SetPlayerMode (PlayerMode.InteractiveCutscene);
@@ -146,31 +145,19 @@ public class TestPlayerController : MonoBehaviour {
 	public void HandleMovement() {
 
 		//Wonky code because idle: 0, walk: 0.5, sprint: 1
-		anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Sprint")/2f, 14f*Time.deltaTime));
+		anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude + anim.GetFloat("Movement"), 14f*Time.deltaTime));
 
 		if (input.moveDir.magnitude > 0.0f) {
-			footstepHandler.PlayFootStep(Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Sprint")/2f, 14f*Time.deltaTime)); //this is always 1, I need to figure out how to differentiate between running and walking and pass it to this param
-			anim.SetFloat("Sprint", input.sprint ? Mathf.Lerp(anim.GetFloat("Sprint"), 1f, 5f*Time.deltaTime) :  Mathf.Lerp(anim.GetFloat("Sprint"), 0f, 5f*Time.deltaTime));
-			//handle sprint anxiety
-			if (input.sprint)
-				HandleSprintAnxiety ();
-			else
-				runAnxietyTimer = 0;
+			//footstepHandler.PlayFootStep(Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Movement")/2f, 14f*Time.deltaTime)); //this is always 1, I need to figure out how to differentiate between running and walking and pass it to this param
+			anim.SetFloat("Movement", input.sprint ? Mathf.Lerp(anim.GetFloat("Movement"), 1f, 5f*Time.deltaTime) :  Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
+			print(anim.GetFloat("Movement"));
 		} else {
-			footstepHandler.CallCeaseFootStep();
-			anim.SetFloat("Sprint", Mathf.Lerp(anim.GetFloat("Sprint"), 0f, 5f*Time.deltaTime));
+			//footstepHandler.CallCeaseFootStep();
+			anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
 		}
 	}
 
-	void HandleSprintAnxiety() {
-		if (isBeingWatched) {
-			runAnxietyTimer += Time.deltaTime;
-			if (runAnxietyTimer > runAnxietyTime) {
-				GetComponent<HealthHandler> ().TakeStress (1);
-				runAnxietyTimer = 0;
-			}
-		}
-	}
+
 
 	public void SetPlayerModeNormal(){
 		lockInput = InputLock.Unlocked;
