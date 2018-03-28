@@ -102,6 +102,7 @@ public class TestPlayerController : MonoBehaviour {
 	
 	void Update () {
 		HandleMovement ();
+		HandleInteraction ();
 		//had to make this block of code to avoid loop glitches
 		if (bSwitch_InteractiveCutscene) {
 			SetPlayerMode (PlayerMode.InteractiveCutscene);
@@ -150,7 +151,6 @@ public class TestPlayerController : MonoBehaviour {
 		if (input.moveDir.magnitude > 0.0f) {
 			//footstepHandler.PlayFootStep(Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Movement")/2f, 14f*Time.deltaTime)); //this is always 1, I need to figure out how to differentiate between running and walking and pass it to this param
 			anim.SetFloat("Movement", input.sprint ? Mathf.Lerp(anim.GetFloat("Movement"), 1f, 5f*Time.deltaTime) :  Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
-			print(anim.GetFloat("Movement"));
 		} else {
 			//footstepHandler.CallCeaseFootStep();
 			anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
@@ -211,6 +211,7 @@ public class TestPlayerController : MonoBehaviour {
 
 	void HandleInteraction() {
 		if (NPInputManager.input.Interact.WasPressed) {
+			print ("PRESSED");
 			Vector3 center = transform.position + transform.forward + transform.up;
 			Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
 			List<GameObject> interactables = new List<GameObject> ();

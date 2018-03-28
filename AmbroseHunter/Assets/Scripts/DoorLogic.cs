@@ -5,9 +5,12 @@ using UnityEngine;
 public class DoorLogic : MonoBehaviour, IInteractable {
 
     bool isOpening, isOpened;
+	bool isClosing;
     public float endRotation = 80f;
     public Transform rotatorRoot;
     public AudioSource doorOpenSound;
+	public AudioSource doorCloseSound;
+
 	// Use this for initialization
 
     private float startTime, duration = 2f;
@@ -35,12 +38,29 @@ public class DoorLogic : MonoBehaviour, IInteractable {
                 isOpening = false;
             }
         }
+
+		if (isClosing)
+		{
+			float t = (Time.time - startTime) / duration;
+			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(endRotation, 0, t), 0));
+			if (t > 1)
+			{
+				isOpening = false;
+			}
+		}
 	}
 
 	public void Interact()
-    {
-		if (!isOpened) {
-			OpenDoor ();
+	{
+		if (!isOpening && !isClosing) {
+			if (!isOpened)
+			{
+				OpenDoor ();
+			}
+			else if (isOpened)
+			{
+				CloseDoor ();
+			}
 		}
     }
 
@@ -50,7 +70,14 @@ public class DoorLogic : MonoBehaviour, IInteractable {
         startTime = Time.time;
         doorOpenSound.Play();
         isOpened = true;
-        
     }
+
+	void CloseDoor()
+	{
+		isClosing = true;
+		startTime = Time.time;
+		doorCloseSound.Play();
+		isOpened = false;
+	}
 }
 
