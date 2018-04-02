@@ -1,0 +1,870 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  Deep Exploration 5.7 5.7.0.4228 Release
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl ACUnit_1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Detail\\Vent_K2.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Detail\\Vent_K2.bmp
+map_Ns 
+
+newmtl FlatRoof_4SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_A.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_A.bmp
+map_Ns 
+
+newmtl FlatRoof_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Roof2.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Roof2.bmp
+map_Ns 
+
+newmtl ApartLSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_E.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_E.bmp
+map_Ns 
+
+newmtl SideWallSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\WallRuf1.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\WallRuf1.bmp
+map_Ns 
+
+newmtl SideWall_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\side\\WalRuinB.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\side\\WalRuinB.bmp
+map_Ns 
+
+newmtl ShopSlot_8SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\Brick_K4.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\Brick_K4.bmp
+map_Ns 
+
+newmtl ShopSlot_3SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_09.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_09.bmp
+map_Ns 
+
+newmtl RecurseRoundToweSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Pave_05.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Pave_05.bmp
+map_Ns 
+
+newmtl SideWall_4SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\ConcWal1.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\ConcWal1.bmp
+map_Ns 
+
+newmtl Explorer_Default
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Shop_4SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_D.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_D.bmp
+map_Ns 
+
+newmtl GroundFloor_3SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\Brick_K6.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\Brick_K6.bmp
+map_Ns 
+
+newmtl ShopSlot_6SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\ShopFronts\\SS_Lo_02.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\ShopFronts\\SS_Lo_02.bmp
+map_Ns 
+
+newmtl SideWall_1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\WallRuf2.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\WallRuf2.bmp
+map_Ns 
+
+newmtl FlatRoofSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_D.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_D.bmp
+map_Ns 
+
+newmtl Shop_1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_F.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_F.bmp
+map_Ns 
+
+newmtl Shop_3SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_C.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_C.bmp
+map_Ns 
+
+newmtl SideWall_3SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\BrickES4.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Wall\\BrickES4.bmp
+map_Ns 
+
+newmtl ShopSlot_12SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_11.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_11.bmp
+map_Ns 
+
+newmtl FlatRoof_1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_C.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_C.bmp
+map_Ns 
+
+newmtl Shop_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_B.bmp
+map_Ns 
+
+newmtl Door_5SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Metro_Textures\\Door_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Metro_Textures\\Door_B.bmp
+map_Ns 
+
+newmtl Door_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Metro_Textures\\Door_A.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Metro_Textures\\Door_A.bmp
+map_Ns 
+
+newmtl Pave_02_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Pave_02.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Pave_02.bmp
+map_Ns 
+
+newmtl GroundFloor_1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Conc_K3.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Ground\\Conc_K3.bmp
+map_Ns 
+
+newmtl Door_3SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Metro_Textures\\DoorDb_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Metro_Textures\\DoorDb_B.bmp
+map_Ns 
+
+newmtl Windx4_R_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_R.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_R.bmp
+map_Ns 
+
+newmtl LampPost_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES1.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES1.bmp
+map_Ns 
+
+newmtl Windx4_B_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Windows\\Windx4_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Windows\\Windx4_B.bmp
+map_Ns 
+
+newmtl Windx4_N_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_N.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_N.bmp
+map_Ns 
+
+newmtl ShopSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_A.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\apartment\\Apart_A.bmp
+map_Ns 
+
+newmtl DoorDb_BSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 30
+map_Kd ..\\..\\..\\_Metro_Textures\\DoorDb_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Metro_Textures\\DoorDb_B.bmp
+map_Ns 
+
+newmtl LampPostSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES4.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES4.bmp
+map_Ns 
+
+newmtl Windx4_Q_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_Q.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\tower\\Windx4_Q.bmp
+map_Ns 
+
+newmtl Windx4_HSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 30
+map_Kd ..\\..\\..\\_Metro_Textures\\Windx4_H.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Metro_Textures\\Windx4_H.bmp
+map_Ns 
+
+newmtl LampPost_2SG_SideWall_4SG
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 10
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl RecurseRoundTowe1SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\roofs\\flatroof\\Roof_F_B.bmp
+map_Ns 
+
+newmtl ShopSlotSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_10.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_10.bmp
+map_Ns 
+
+newmtl Ad_Sqr11_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr11.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr11.bmp
+map_Ns 
+
+newmtl Corug_K1_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Metal\\Corug_K1.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Metal\\Corug_K1.bmp
+map_Ns 
+
+newmtl ShopSlot_10SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_12.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_12.bmp
+map_Ns 
+
+newmtl ShopSlot_7SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_13.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_13.bmp
+map_Ns 
+
+newmtl ShopSlot_2SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_07.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\_Para_Textures\\facades\\shop\\SS_Lo_07.bmp
+map_Ns 
+
+newmtl ACUnitSG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\Arab-World\\_Arab_Textures\\Detail\\ACUnit_A.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\Arab-World\\_Arab_Textures\\Detail\\ACUnit_A.bmp
+map_Ns 
+
+newmtl Ad_Sqr12_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr12.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr12.bmp
+map_Ns 
+
+newmtl WoodES_B_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\Arab-World\\_Arab_Textures\\Wood\\WoodES-B.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\Arab-World\\_Arab_Textures\\Wood\\WoodES-B.bmp
+map_Ns 
+
+newmtl TREE_B_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\TREE_B.bmp
+map_bump 
+bump 
+map_opacity ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\Tree_Ba.bmp
+map_d ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\Tree_Ba.bmp
+refl 
+map_kS 
+map_kA ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\TREE_B.bmp
+map_Ns 
+
+newmtl Ad_Sqr13_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr13.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr13.bmp
+map_Ns 
+
+newmtl TREE_G_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\TREE_G.bmp
+map_bump 
+bump 
+map_opacity ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\Tree_Ca.bmp
+map_d ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\Tree_Ca.bmp
+refl 
+map_kS 
+map_kA ..\\..\\..\\..\\Geography\\_Terra_Texture-Lib\\Trees\\TREE_G.bmp
+map_Ns 
+
+newmtl ShopSlot_9SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\ShopFronts\\SS_Lo_04.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\ShopFronts\\SS_Lo_04.bmp
+map_Ns 
+
+newmtl Sign_VL2_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Sign_VL2.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Sign_VL2.bmp
+map_Ns 
+
+newmtl Ad_Sqr14_Mat_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr14.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\HD_City\\_Textures_HD\\Signage\\Ad_Sqr14.bmp
+map_Ns 
+
+newmtl MetalES2_SG
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 2
+Ns 18
+map_Kd ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES2.bmp
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA ..\\..\\..\\Arab-World\\_Arab_Textures\\Metal\\MetalES2.bmp
+map_Ns 
