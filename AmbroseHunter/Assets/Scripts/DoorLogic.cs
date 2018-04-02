@@ -6,7 +6,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 
     bool isOpening, isOpened;
 	bool isClosing;
-    public float endRotation = 80f;
+	public float endRotation = 80f, startRotation = 0f;
     public Transform rotatorRoot;
     public AudioSource doorOpenSound;
 	public AudioSource doorCloseSound;
@@ -32,7 +32,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 		if (isOpening)
         {
             float t = (Time.time - startTime) / duration;
-            rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(0, endRotation, t), 0));
+			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(startRotation, endRotation, t), 0));
             if (t > 1)
             {
                 isOpening = false;
@@ -42,7 +42,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 		if (isClosing)
 		{
 			float t = (Time.time - startTime) / duration;
-			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(endRotation, 0, t), 0));
+			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(endRotation, startRotation, t), 0));
 			if (t > 1)
 			{
 				isOpening = false;
@@ -68,7 +68,8 @@ public class DoorLogic : MonoBehaviour, IInteractable {
     {
         isOpening = true;
         startTime = Time.time;
-        doorOpenSound.Play();
+		if (doorOpenSound)
+        	doorOpenSound.Play();
         isOpened = true;
     }
 
@@ -76,7 +77,8 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 	{
 		isClosing = true;
 		startTime = Time.time;
-		doorCloseSound.Play();
+		if (doorCloseSound)
+			doorCloseSound.Play();
 		isOpened = false;
 	}
 }
