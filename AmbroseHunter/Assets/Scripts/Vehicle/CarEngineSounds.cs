@@ -12,10 +12,16 @@ public class CarEngineSounds : MonoBehaviour {
 	}
 
 	void Update () {
-		if (PlayerCar.s_instance.isAccelerating && engine.pitch < maxPitch) {
-			engine.pitch += .01f;
-		} else if (!PlayerCar.s_instance.isAccelerating && engine.pitch > 1) {
-			engine.pitch -= .1f;
+		if (PlayerCar.s_instance && engine)
+		{
+			if (PlayerCar.s_instance.isAccelerating && engine.pitch < maxPitch) 
+			{
+				engine.pitch += .01f;
+			}
+			else if (!PlayerCar.s_instance.isAccelerating && engine.pitch > 1)
+			{
+				engine.pitch -= .1f;
+			}
 		}
 	}
 

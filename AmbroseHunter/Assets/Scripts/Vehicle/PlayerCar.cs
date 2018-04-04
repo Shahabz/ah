@@ -60,7 +60,7 @@ public class PlayerCar : CarMetrics
 	public MovementState currMovementState = MovementState.Drive;
 	public bool isCharged, isBoosting;
 
-	InputDevice inputDevice;
+	BaseInput input;
 
 
 	#endregion
@@ -77,6 +77,7 @@ public class PlayerCar : CarMetrics
 	new void Start ()
 	{
 		base.Start ();
+		input = GetComponent<BaseInput> ();
 		if (AIdebug) {
 			Camera.main.gameObject.SetActive (false);
 			debugAICam.SetActive (true);
@@ -96,9 +97,7 @@ public class PlayerCar : CarMetrics
 					LoseGame ();
 				break;
 			}
-
-			inputDevice = InputManager.ActiveDevice;
-
+				
 			if (currentGas < 0.5f) {
 				RunOutOfGas ();
 			}
@@ -111,24 +110,7 @@ public class PlayerCar : CarMetrics
 			HandleRightStickHorizontal ();
 
 			//Interaction Functions
-			if (inputDevice.Action1.WasPressed) {
-				PlayerInteractStart ();
-			}
 
-			if (inputDevice.Action1.WasReleased) {
-				PlayerInteractEnd ();
-			}
-
-			if (inputDevice.LeftTrigger.WasPressed) {
-				LockOnToTarget ();
-			}
-			if (inputDevice.LeftTrigger.WasReleased) {
-				UnlockFromTarget ();
-			}
-
-			if (inputDevice.RightTrigger.WasPressed) {
-				AfterburnerBoost ();
-			}
 			#endregion
 		}
 
@@ -161,11 +143,8 @@ public class PlayerCar : CarMetrics
 		currThrust = 0.0f;
 		isAccelerating = false;
 		aclAxis = 0;
-		if (inputDevice.LeftStickUp != 0) {
-			aclAxis = inputDevice.LeftStickUp;
-			isAccelerating = true;
-		} else if (inputDevice.LeftStickDown != 0) {
-			aclAxis = -inputDevice.LeftStickDown;
+		if (input.moveDir.z != 0) {
+			aclAxis = input.moveDir.z;
 			isAccelerating = true;
 		}
 		if (aclAxis > deadZone)
@@ -177,10 +156,8 @@ public class PlayerCar : CarMetrics
 	void HandleRightStickHorizontal () {
 		// Turning
 		float turnAxis = 0.0f;
-		if (inputDevice.RightStickRight != 0) {
-			turnAxis = inputDevice.RightStickRight;
-		} else if (inputDevice.RightStickLeft != 0) {
-			turnAxis = -inputDevice.RightStickLeft;
+		if (input.moveDir.x != 0) {
+			turnAxis = input.moveDir.x;
 		}
 		currTurn = turnAxis;
 	}
@@ -188,10 +165,8 @@ public class PlayerCar : CarMetrics
 	void HandleLeftStickHorizontal () {
 		// Strafe
 		float strafeAxis = 0;
-		if (inputDevice.LeftStickLeft != 0) {
-			strafeAxis = -inputDevice.LeftStickLeft;
-		} else if (inputDevice.LeftStickRight != 0) {
-			strafeAxis = inputDevice.LeftStickRight;
+		if (input.lookDir.x!= 0) {
+			strafeAxis = input.lookDir.x;
 		}
 		currStrafe = strafeAxis * strafeAcl;
 	}
