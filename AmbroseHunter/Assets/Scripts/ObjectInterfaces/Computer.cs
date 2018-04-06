@@ -69,12 +69,12 @@ public class Computer : MultipleChoice, IInteractable {
 	public override void SelectItem () {
 		switch (selection) {
 		case 0:
-                PlayerController.s_instance.TryPracticeProgramming();
+                //PlayerController.s_instance.TryPracticeProgramming();
 			break;
 		case 1:
 			if (!appliedOnThisComputerToday) {
 				appliedOnThisComputerToday = true;
-				PlayerController.s_instance.switchToApplyToJob = true;
+				//PlayerController.s_instance.switchToApplyToJob = true;
 			}
 
 			break;
@@ -83,7 +83,7 @@ public class Computer : MultipleChoice, IInteractable {
 			break;
 		case 3:
 			TurnOff ();
-			PlayerController.s_instance.switchToWalking = true;
+			//PlayerController.s_instance.switchToWalking = true;
 			break;
 		}
 	}
