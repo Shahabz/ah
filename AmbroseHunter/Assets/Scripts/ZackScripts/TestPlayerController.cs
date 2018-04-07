@@ -18,6 +18,7 @@ public class TestPlayerController : MonoBehaviour {
 	public float sprintSpeedMod = 1.8f;
 	public float turnSpeed = 0.6f;
 
+	bool bIsFalling;
 
 	Animator anim;
     //	public Animator topAnimator;
@@ -121,25 +122,54 @@ public class TestPlayerController : MonoBehaviour {
 	public void FixedUpdate() {
 		if(lockInput == InputLock.Locked)
 			return;
-		float speedMod = input.sprint ? sprintSpeedMod : 1.0f;
-		rigidbody.angularVelocity = Vector3.zero;
+		//TODO make this not suck by working out better logic for when you are on elevation
 
-		if (input.moveDir.magnitude > 0.0f) {
-			Vector3 targetVelocity = transform.forward * moveSpeed * speedMod;
-			Vector3 velocity = rigidbody.velocity;
-			Vector3 velocityChange = (targetVelocity - velocity);
-			rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
-
-			Vector3 lookDir = Vector3.zero;
-			if (Mathf.Abs(input.moveDir.z) > 0.0f)
-				lookDir += (transform.position - cameraObj.transform.position).normalized * Mathf.Sign(input.moveDir.z);
-			if (Mathf.Abs(input.moveDir.x) > 0.0f)
-				lookDir += Vector3.Cross(transform.up, (transform.position - cameraObj.transform.position).normalized) * Mathf.Sign(input.moveDir.x);
-			lookDir.Normalize();
-			lookDir.y = 0.0f;
-
-			if (lookDir != Vector3.zero)
-				rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDir), turnSpeed * Time.deltaTime));
+	
+			//allow gravity to pull you down
+		/*RaycastHit tempHit;
+		Physics.Raycast (transform.position, Vector3.down, out tempHit, 10000000f);
+		//if is on elevation
+		print(tempHit.normal);
+		print (tempHit.point);
+		if (Vector3.Dot(tempHit.normal, Vector3.up) < .9f)
+		{
+			float speedMod = input.sprint ? sprintSpeedMod : 1.0f;
+			rigidbody.angularVelocity = Vector3.zero;
+			if (input.moveDir.magnitude > 0.0f) {
+				Vector3 targetVelocity = transform.forward * moveSpeed * speedMod;
+				Vector3 velocity = rigidbody.velocity;
+				Vector3 velocityChange = (targetVelocity - velocity);
+				rigidbody.AddForce (velocityChange, ForceMode.VelocityChange);
+				Vector3 lookDir = Vector3.zero;
+				if (Mathf.Abs (input.moveDir.z) > 0.0f)
+					lookDir += (transform.position - cameraObj.transform.position).normalized * Mathf.Sign (input.moveDir.z);
+				if (Mathf.Abs (input.moveDir.x) > 0.0f)
+					lookDir += Vector3.Cross (transform.up, (transform.position - cameraObj.transform.position).normalized) * Mathf.Sign (input.moveDir.x);
+				lookDir.Normalize ();
+				lookDir.y = 0.0f;
+				if (lookDir != Vector3.zero)
+					rigidbody.MoveRotation (Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (lookDir), turnSpeed * Time.deltaTime));
+			}
+		}
+		else
+		{*/
+			float speedMod = input.sprint ? sprintSpeedMod : 1.0f;
+			rigidbody.angularVelocity = Vector3.zero;
+			if (input.moveDir.magnitude > 0.0f) {
+			Vector3 targetVelocity = (transform.forward - transform.up) * moveSpeed * speedMod;
+				Vector3 velocity = rigidbody.velocity;
+				Vector3 velocityChange = (targetVelocity - velocity);
+				rigidbody.AddForce (velocityChange, ForceMode.VelocityChange);
+				Vector3 lookDir = Vector3.zero;
+				if (Mathf.Abs (input.moveDir.z) > 0.0f)
+					lookDir += (transform.position - cameraObj.transform.position).normalized * Mathf.Sign (input.moveDir.z);
+				if (Mathf.Abs (input.moveDir.x) > 0.0f)
+					lookDir += Vector3.Cross (transform.up, (transform.position - cameraObj.transform.position).normalized) * Mathf.Sign (input.moveDir.x);
+				lookDir.Normalize ();
+				lookDir.y = 0.0f;
+				if (lookDir != Vector3.zero)
+					rigidbody.MoveRotation (Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (lookDir), turnSpeed * Time.deltaTime));
+			//}
 		}
 	}
 
@@ -262,5 +292,17 @@ public class TestPlayerController : MonoBehaviour {
 		heldObject.transform.parent = null;
 		heldObject.AddComponent<Rigidbody> ();
 		bSwitch_Normal = true;
+	}
+
+
+	void OnCollisionStay()
+	{
+		bIsFalling = false;
+	}
+
+	void OnCollisionExit()
+	{
+		bIsFalling = true;
+
 	}
 }
