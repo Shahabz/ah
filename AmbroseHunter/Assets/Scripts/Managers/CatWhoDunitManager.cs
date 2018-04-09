@@ -46,7 +46,6 @@ public class CatWhoDunitManager : MonoBehaviour {
 
 		TextManager.s_instance.SetNotification ("You saved the models", 6f);
 		success.Play ();
-		GameManager.s_instance.SetSaveWomen (true);
 		foreach (WhodunitCat x in WhoDunitCats) {
 			x.WinState ();
 		}

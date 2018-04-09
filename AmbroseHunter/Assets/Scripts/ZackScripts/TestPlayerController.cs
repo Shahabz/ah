@@ -241,7 +241,6 @@ public class TestPlayerController : MonoBehaviour {
 
 	void HandleInteraction() {
 		if (NPInputManager.input.Interact.WasPressed) {
-			print ("PRESSED");
 			Vector3 center = transform.position + transform.forward + transform.up;
 			Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
 			List<GameObject> interactables = new List<GameObject> ();

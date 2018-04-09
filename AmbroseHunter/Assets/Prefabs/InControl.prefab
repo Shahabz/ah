@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114683677484312380}
   - component: {fileID: 114913627751937684}
   - component: {fileID: 114009081272424718}
+  - component: {fileID: 114856580595365710}
   m_Layer: 0
   m_Name: InControl
   m_TagString: Untagged
@@ -55,11 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkingStateGameObjects:
   - {fileID: 0}
-  DrivingStateGameObjects:
-  - {fileID: 0}
+  DrivingStateGameObjects: []
   WalkingStateObjects:
   - {fileID: 0}
+  - {fileID: 0}
   DrivingStateObjects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &114683677484312380
 MonoBehaviour:
@@ -80,6 +82,21 @@ MonoBehaviour:
   xInputUpdateRate: 0
   xInputBufferSize: 0
   customProfiles: []
+--- !u!114 &114856580595365710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728193538051856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff8925ca6202245a4a8c17bd3d2349b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  day: 0
+  timeBonus: 30
+  second: 300
+  timeDisplay: {fileID: 0}
 --- !u!114 &114913627751937684
 MonoBehaviour:
   m_ObjectHideFlags: 1

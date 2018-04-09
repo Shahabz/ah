@@ -123,13 +123,6 @@ public class Therapist : MultipleChoice {
 			break;
 
 
-		case TherapistState.Introduction:
-			if (GenericTimer.RunGenericTimer (introductionTime + welcomeToTherapyDavidLuna[GameManager.s_instance.day].clip.length, ref introductionTimer)){
-				thisTherapistState = TherapistState.AskingQuestion;
-				ShowAskingQuestionState ();
-			}
-
-			break;
 		case TherapistState.AskingQuestion:
 			if (GenericTimer.RunGenericTimer (askingQuestionTime + currentAudioClip.length, ref askingQuestionTimer)) {
 				therapistSubtitle.gameObject.SetActive (false);
