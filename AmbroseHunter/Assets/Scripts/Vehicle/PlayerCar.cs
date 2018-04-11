@@ -1,4 +1,4 @@
-﻿   using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System;
 using InControl;
@@ -41,6 +41,8 @@ public class PlayerCar : CarMetrics
 	public Transform bulldozeChildTransform;
 	public Transform cameraEngagePosition;
 
+	bool bIsInParkingZone = true;
+
 	public delegate void Target();
 	public static event Target BeginTarget;
 	
@@ -59,6 +61,8 @@ public class PlayerCar : CarMetrics
 	public enum MovementState {Drive, Target, Submit, OutOfGas};
 	public MovementState currMovementState = MovementState.Drive;
 	public bool isCharged, isBoosting;
+
+	float StartCarCoolDown, StartCarCoolDownTime = 1f;
 
 	BaseInput input;
 
@@ -87,9 +91,24 @@ public class PlayerCar : CarMetrics
 		}
 
 	}
-	
+
+	//player gets in car
+	void OnEnable()
+	{
+		StartCarCoolDown = 0;
+	}
+
+	void OnDisable(){
+
+	}
+
 	void Update ()
 	{
+		if (StartCarCoolDown < StartCarCoolDownTime)
+		{
+			StartCarCoolDown += Time.deltaTime;
+			return;
+		}
 		if (!AIdebug) {
 			//State Machine
 			switch (currMovementState) {
@@ -108,7 +127,7 @@ public class PlayerCar : CarMetrics
 			HandleLeftStickVertical ();
 			HandleLeftStickHorizontal ();
 			HandleRightStickHorizontal ();
-
+			HandleInteraction();
 			//Interaction Functions
 
 			#endregion
@@ -138,7 +157,7 @@ public class PlayerCar : CarMetrics
 		}
 	}
 
-	    void HandleLeftStickVertical () {
+	void HandleLeftStickVertical () {
 		//Car Acceleration
 		currThrust = 0.0f;
 		isAccelerating = false;
@@ -170,6 +189,19 @@ public class PlayerCar : CarMetrics
 		}
 		currStrafe = strafeAxis * strafeAcl;
 	}
+
+	void HandleInteraction()
+	{
+		if (NPInputManager.input.Interact)
+		{
+			if (bIsInParkingZone)
+			{
+				PlayerController.s_instance.SwitchToDrivingState();
+			}
+		}
+	}
+
+
 	#endregion
 
 	void StartGameOverCameraLerp () {
@@ -211,6 +243,11 @@ public class PlayerCar : CarMetrics
 		//	other.GetComponent<AIHoverCar> ().currentTarget = transform;
 			currentTarget = other.transform;
 		}
+
+		if (other.tag == "ParkingZone")
+		{
+			bIsInParkingZone = true;
+		}
 	}
 
 	void OnTriggerExit (Collider other) {
@@ -218,6 +255,11 @@ public class PlayerCar : CarMetrics
 		//	other.GetComponent<AIHoverCar> ().isCloseToPlayer = false;
 		//	other.GetComponent<AIHoverCar> ().currentTarget = null;
 			currentTarget = null;
+		}
+
+		if (other.tag == "ParkingZone")
+		{
+			bIsInParkingZone = false;
 		}
 	}
 
@@ -263,6 +305,5 @@ public class PlayerCar : CarMetrics
 //			StealGas();
 //		}
 	}
-
 }
 
