@@ -102,6 +102,7 @@ public class PlayerCar : CarMetrics
 
 	}
 
+
 	void Update ()
 	{
 		if (StartCarCoolDown < StartCarCoolDownTime)
@@ -213,7 +214,7 @@ public class PlayerCar : CarMetrics
 	{
 		base.FixedUpdate ();
 		// Turn
-		if (currTurn != 0 && !isMovementDisabled) {
+		if (currTurn != 0 && !isMovementDisabled && isTouchingGround) {
 			m_body.AddRelativeTorque (Vector3.up * currTurn * turnStrength);
 		}
 

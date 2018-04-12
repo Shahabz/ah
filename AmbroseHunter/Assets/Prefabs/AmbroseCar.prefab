@@ -125,7 +125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1568728748582434
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +833,14 @@ MonoBehaviour:
   headLights: []
   tailLights: []
   blackened: {fileID: 0}
-  m_hoverPoints: []
+  m_hoverPoints:
+  - {fileID: 4481599188845988}
+  - {fileID: 4213904447341212}
+  - {fileID: 4504163160144468}
+  - {fileID: 4741534034504452}
+  hoverForce: 3000
+  stabilizeForce: 30
+  hoverHeight: 1
   debugCarPosition: 0
   AIdebug: 0
   debugTransform: {fileID: 0}
@@ -841,7 +848,7 @@ MonoBehaviour:
   forwardAcl: 15000
   backwardAcl: 5000
   strafeAcl: 5000
-  turnStrength: 8000
+  turnStrength: 4000
   money: 0
   idleGasLossRate: 0
   movingGasLossRate: 0
@@ -901,7 +908,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: SwitchToDrivingState
+        m_MethodName: SwitchToWalkingState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -924,7 +931,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  infinitelyTriggerable: 0
+  infinitelyTriggerable: 1
 --- !u!137 &137068352850390670
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

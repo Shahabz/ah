@@ -24,8 +24,9 @@ public class CarMetrics : MonoBehaviour {
 	protected bool isTouchingGround;
 
 	protected float deadZone = 0.1f;
-	protected float hoverForce = 3000.0f;
-	protected float hoverHeight = 1.0f;
+	public float hoverForce = 100.0f;
+	public float stabilizeForce = 10.0f;
+	public float hoverHeight = 1.5f;
 
 	protected int m_layerMask;
 
@@ -77,11 +78,11 @@ public class CarMetrics : MonoBehaviour {
 	protected void StabilizeMidAir () {
 		if (Mathf.Abs (transform.rotation.eulerAngles.x) > 1f) {
 			float negOrPosVal = (transform.rotation.eulerAngles.x < 180) || (transform.rotation.eulerAngles.x < 0) ? -1f : 1f;
-			transform.Rotate (negOrPosVal * 0.1f, 0, 0);
+			transform.Rotate (negOrPosVal * 0.01f, 0, 0);
 		}
 		if (Mathf.Abs (transform.rotation.eulerAngles.z) > 1f) {
 			float negOrPosVal = (transform.rotation.eulerAngles.z < 180) ? -1f : 1f;
-			transform.Rotate (0, 0, negOrPosVal * 0.1f);
+			transform.Rotate (0, 0, negOrPosVal * 0.01f);
 		}
 	}
 
@@ -94,11 +95,13 @@ public class CarMetrics : MonoBehaviour {
 				isTouchingGround = true;
 			} else {
 				isTouchingGround = false;
-				StabilizeMidAir ();
+				//StabilizeMidAir ();
+				//push back to earth
+				m_body.AddForceAtPosition(Vector3.up*-1000, transform.position);
 				if (transform.position.y > hoverPoint.transform.position.y) {
-					m_body.AddForceAtPosition (hoverPoint.transform.up * hoverForce, hoverPoint.transform.position);
+					m_body.AddForceAtPosition (hoverPoint.transform.up * stabilizeForce, hoverPoint.transform.position);
 				} else {
-					m_body.AddForceAtPosition (hoverPoint.transform.up * -hoverForce, hoverPoint.transform.position);
+					m_body.AddForceAtPosition (hoverPoint.transform.up * -stabilizeForce, hoverPoint.transform.position);
 				}
 			}
 		}
