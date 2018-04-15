@@ -7,17 +7,17 @@ public enum BaseAIStates {Idle, Talking, Following, Waypoints, Runaway, AttackPl
 
 public class BaseAI : MonoBehaviour {
 
-	public Animator thisCatAnimator;
+	public Animator thisAnimator;
 	protected NavMeshAgent thisNavMeshAgent;
 	protected BaseAIStates thisAIState;
-	float catRunSpeed = .02f;
+	float runSpeed = .02f;
 	public float triggerFollowDistance = 15f;
-	float catLookAngle = 20;
+	float angleForIsPlayerFacing = 20;
 	float waypointToggleDistance = 3f;
 	//cat runs back to this point after it attacks player
 	Vector3 runawayTarget;
 
-	public GameObject deadCat;
+	public GameObject deadBodyGO;
 
 	float overlapTimeTilDeath;
 	public bool isKillable;
@@ -137,7 +137,7 @@ public class BaseAI : MonoBehaviour {
 
 	bool IsFacedByPlayer()
 	{
-		if (GetAngleBetweenPlayerForwardAndSelf() < catLookAngle)
+		if (GetAngleBetweenPlayerForwardAndSelf() < angleForIsPlayerFacing)
 		{
 			return true;
 		}
@@ -173,20 +173,20 @@ public class BaseAI : MonoBehaviour {
 		switch (switchToThisState) {
 		case BaseAIStates.Waypoints:
 			thisAIState = BaseAIStates.Waypoints;
-			thisCatAnimator.SetTrigger("run");
+			thisAnimator.SetTrigger("run");
 			thisNavMeshAgent.isStopped = false;
 			GotoNextWaypoint ();
 			break;
 
 		case BaseAIStates.Idle:
 			thisAIState = BaseAIStates.Idle;
-			thisCatAnimator.ResetTrigger ("run");
-			thisCatAnimator.SetTrigger ("idle");
+			thisAnimator.ResetTrigger ("run");
+			thisAnimator.SetTrigger ("idle");
 			thisNavMeshAgent.isStopped = true;
 			break;
 		case BaseAIStates.Following:
 			thisAIState = BaseAIStates.Following;
-			thisCatAnimator.SetTrigger ("run");
+			thisAnimator.SetTrigger ("run");
 			thisNavMeshAgent.isStopped = false;
 			runawayTarget = transform.position;
 			break;
@@ -195,7 +195,7 @@ public class BaseAI : MonoBehaviour {
 			break;
 		case BaseAIStates.AttackPlayer:
 			thisAIState = BaseAIStates.AttackPlayer;
-			thisCatAnimator.SetTrigger ("run");
+			thisAnimator.SetTrigger ("run");
 			break;
 		}
 	}
