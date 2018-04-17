@@ -7,11 +7,16 @@ public class StateController : MonoBehaviour {
 
 
 	public State currentState;
+	public State remainState;
+	public AIStats thisAIStats;
 
 	[HideInInspector] public NavMeshAgent thisNavMeshAgent;
 	public Transform eyes;
 	[HideInInspector] public List<Transform> wayPointList;
 	[HideInInspector] public int nextWayPoint;
+	[HideInInspector] public Transform chaseTarget;
+	[HideInInspector] public float stateTimeElapsed;
+
 
 
 	private bool aiActive;
@@ -44,5 +49,23 @@ public class StateController : MonoBehaviour {
 			Gizmos.color = currentState.sceneGizmoColor;
 			Gizmos.DrawWireSphere (eyes.position, 2f);
 		}
+	}
+
+	public void TransitionToState(State nextState)
+	{
+		if (nextState != remainState) {
+			currentState = nextState;
+		}
+	}
+
+	public bool CheckIfCountdownElapsed(float duration) 
+	{
+		stateTimeElapsed += Time.deltaTime;
+		return (stateTimeElapsed >= duration);
+	}
+
+	private void OnExitState()
+	{
+		stateTimeElapsed = 0;
 	}
 }

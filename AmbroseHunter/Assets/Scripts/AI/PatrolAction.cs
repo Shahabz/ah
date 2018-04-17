@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "PluggableAI/AIActions/Patrol")]
+[CreateAssetMenu (menuName = "PluggableAI/Actions/Patrol")]
 public class PatrolAction : AIAction {
 
 	public override void Act(StateController controller)

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0f5322fbb4732438d5a2768c79d378, type: 3}
+  m_Name: PatrolChaser
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: a5dab367c16dfbf43b973be07657fc43, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 3cf519999cedb0d4f9dfe0dcd42e9483, type: 2}
+    trueState: {fileID: 11400000, guid: beb9f0b7ecc02aa49aa18a9e1e989012, type: 2}
+    falseState: {fileID: 11400000, guid: a973d45ff6a8b7b4f903da2e8917d935, type: 2}
+  sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}
