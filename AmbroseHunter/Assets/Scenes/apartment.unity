@@ -13122,6 +13122,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 4.2369843
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 425b973a4b5a0a648af8061261234d6a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 230702c580862694e875e4efde860f6f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 425b973a4b5a0a648af8061261234d6a, type: 3}
   m_IsPrefabParent: 0
@@ -13138,7 +13142,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.03
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -25748,6 +25752,8 @@ MonoBehaviour:
   - {fileID: 484795247}
   - {fileID: 1228399982}
   - {fileID: 116428256}
+  stateControllers:
+  - {fileID: 936249890}
 --- !u!1001 &1938251107
 Prefab:
   m_ObjectHideFlags: 0

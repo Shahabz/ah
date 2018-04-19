@@ -27,8 +27,12 @@ public class State : ScriptableObject {
 			bool decisionSucceeded = transitions [i].decision.Decide (controller);
 			if (decisionSucceeded)
 			{
+				if (controller.GetComponent<Animator> () && transitions [i].trueStateAnimationTrigger!="")
+					controller.GetComponent<Animator> ().SetTrigger (transitions [i].trueStateAnimationTrigger);
 				controller.TransitionToState (transitions [i].trueState);
 			}else{
+				if (controller.GetComponent<Animator> () && transitions [i].falseStateAnimationTrigger!="")
+					controller.GetComponent<Animator> ().SetTrigger (transitions [i].falseStateAnimationTrigger);
 				controller.TransitionToState (transitions [i].falseState);
 			}
 
