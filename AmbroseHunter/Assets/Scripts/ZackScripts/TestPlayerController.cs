@@ -27,6 +27,9 @@ public class TestPlayerController : MonoBehaviour {
 	Rigidbody rigidbody;
 	public Transform cameraObj;
 
+	List<GameObject> interactables = new List<GameObject> ();
+	GameObject closestInteractableObject;
+
 	public AudioClip[] allBarks;
 	public AudioSource barkSource;
 	int lastbark;
@@ -38,6 +41,8 @@ public class TestPlayerController : MonoBehaviour {
 		barkSource.Play ();
 		lastbark = temp; 
 	}
+
+	float CheckForInteractablesTimer;
 
 	bool isStomp;
 	public void Stomp()
@@ -104,6 +109,7 @@ public class TestPlayerController : MonoBehaviour {
 	void Update () {
 		HandleMovement ();
 		HandleInteraction ();
+		CheckForInteractables ();
 		//had to make this block of code to avoid loop glitches
 		if (bSwitch_InteractiveCutscene) {
 			SetPlayerMode (PlayerMode.InteractiveCutscene);
@@ -241,25 +247,54 @@ public class TestPlayerController : MonoBehaviour {
 
 	void HandleInteraction() {
 		if (NPInputManager.input.Interact.WasPressed) {
-			Vector3 center = transform.position + transform.forward + transform.up;
-			Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
-			List<GameObject> interactables = new List<GameObject> ();
-			for (int i = 0; i < cols.Length; i++) {
-				if (cols [i].GetComponent<IInteractable> () != null) {
-					interactables.Add (cols [i].gameObject);
-				}
-			}
+			FindAllInteractionInInteractionZone ();
+			if (closestInteractableObject!=null)
+				closestInteractableObject.GetComponent<IInteractable> ().Interact ();
+			interactables.Clear ();
+			closestInteractableObject = null;
+		}
+	}
+
+	void CheckForInteractables()
+	{
+		//we want to allow people to interact with an object
+		//when the object is in range and can be interactive, we want to display that hitting the action button
+		//will perform this contextual action
+		CheckForInteractablesTimer+=Time.deltaTime;
+		if (CheckForInteractablesTimer > .3f) {
+			CheckForInteractablesTimer = 0;
+			FindAllInteractionInInteractionZone();
 			if (interactables.Count > 0) {
-				GameObject closest = interactables [0];
-				for (int i = 1; i < interactables.Count; i++) {
-					if (Vector3.Distance (center, interactables [i].transform.position) < Vector3.Distance (center, closest.transform.position)) {
-						closest = interactables [i];
-					}
+				//show prompt for this
+
+			} else {
+				//hide prompt
+			}
+		}
+
+
+
+	}
+
+	void FindAllInteractionInInteractionZone()
+	{
+		Vector3 center = transform.position + transform.forward + transform.up;
+		Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
+		for (int i = 0; i < cols.Length; i++) {
+			if (cols [i].GetComponent<IContextInteractable> () != null && cols [i].GetComponent<IContextInteractable> ().CanInteract()) {
+				interactables.Add (cols [i].gameObject);
+			}
+		}
+		if (interactables.Count > 0) {
+			GameObject closest = interactables [0];
+			for (int i = 1; i < interactables.Count; i++) {
+				if (Vector3.Distance (center, interactables [i].transform.position) < Vector3.Distance (center, closest.transform.position)) {
+					closest = interactables [i];
 				}
-				closest.GetComponent<IInteractable> ().Interact ();
 			}
 		}
 	}
+
 
     public void EnterTherapy ()
     {
