@@ -328,6 +328,10 @@ public class TestPlayerController : MonoBehaviour {
 		bSwitch_Normal = true;
 	}
 
+	public void PlayAnimation(string name, bool freezeInput, float freezeDuration = -1)
+	{
+
+	}
 
 	void OnCollisionStay()
 	{

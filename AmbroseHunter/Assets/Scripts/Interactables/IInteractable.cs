@@ -8,7 +8,7 @@ public interface IInteractable  {
 
 //interactable interface that can lose ability to be interacted with, and return a string for to tell player what the interaction will do
 public interface IContextInteractable {
-	bool Interact();
+	void Interact(TestPlayerController thisController);
 	bool CanInteract();
 	string GetPrompt();
 }

@@ -10,5 +10,6 @@ public class AIStats : ScriptableObject {
 	public float lookRange = 1f;
 	public float attackRange = 1f;
 	public float attackRate = 1f;
+	public float maxHealth = 10f;
 	//etc...
 }
