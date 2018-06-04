@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorLogic : MonoBehaviour, IInteractable {
+public class DoorLogic : MonoBehaviour, IContextInteractable {
 
     bool isOpening, isOpened;
 	bool isClosing;
@@ -10,6 +10,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
     public Transform rotatorRoot;
     public AudioSource doorOpenSound;
 	public AudioSource doorCloseSound;
+	public Vector3 AxisOfRotation;
 
 	// Use this for initialization
 
@@ -32,7 +33,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 		if (isOpening)
         {
             float t = (Time.time - startTime) / duration;
-			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(startRotation, endRotation, t), 0));
+			rotatorRoot.localRotation = Quaternion.Euler(Mathf.SmoothStep(startRotation, endRotation, t)*AxisOfRotation);
             if (t > 1)
             {
                 isOpening = false;
@@ -42,7 +43,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 		if (isClosing)
 		{
 			float t = (Time.time - startTime) / duration;
-			rotatorRoot.localRotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(endRotation, startRotation, t), 0));
+			rotatorRoot.localRotation = Quaternion.Euler(Mathf.SmoothStep(endRotation, startRotation, t)*AxisOfRotation);
 			if (t > 1)
 			{
 				isOpening = false;
@@ -50,7 +51,7 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 		}
 	}
 
-	public void Interact()
+	public void Interact(TestPlayerController thisPlayerController)
 	{
 		if (!isOpening && !isClosing) {
 			if (!isOpened)
@@ -63,6 +64,16 @@ public class DoorLogic : MonoBehaviour, IInteractable {
 			}
 		}
     }
+
+	public string GetPrompt()
+	{
+		return "";
+	}
+
+	public bool CanInteract()
+	{
+		return true;
+	}
 
     void OpenDoor()
     {

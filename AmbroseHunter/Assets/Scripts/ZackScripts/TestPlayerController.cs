@@ -130,7 +130,6 @@ public class TestPlayerController : MonoBehaviour {
 			return;
 		//TODO make this not suck by working out better logic for when you are on elevation
 
-	
 			//allow gravity to pull you down
 		/*RaycastHit tempHit;
 		Physics.Raycast (transform.position, Vector3.down, out tempHit, 10000000f);
@@ -159,6 +158,7 @@ public class TestPlayerController : MonoBehaviour {
 		}
 		else
 		{*/
+
 			float speedMod = input.sprint ? sprintSpeedMod : 1.0f;
 			rigidbody.angularVelocity = Vector3.zero;
 			if (input.moveDir.magnitude > 0.0f) {
@@ -247,11 +247,9 @@ public class TestPlayerController : MonoBehaviour {
 
 	void HandleInteraction() {
 		if (NPInputManager.input.Interact.WasPressed) {
-			FindAllInteractionInInteractionZone ();
-			if (closestInteractableObject!=null)
-				closestInteractableObject.GetComponent<IInteractable> ().Interact ();
-			interactables.Clear ();
-			closestInteractableObject = null;
+			if (closestInteractableObject != null) {
+				closestInteractableObject.GetComponent<IContextInteractable> ().Interact (this);
+			}
 		}
 	}
 
@@ -261,7 +259,7 @@ public class TestPlayerController : MonoBehaviour {
 		//when the object is in range and can be interactive, we want to display that hitting the action button
 		//will perform this contextual action
 		CheckForInteractablesTimer+=Time.deltaTime;
-		if (CheckForInteractablesTimer > .3f) {
+		if (CheckForInteractablesTimer > .05f) {
 			CheckForInteractablesTimer = 0;
 			FindAllInteractionInInteractionZone();
 			if (interactables.Count > 0) {
@@ -278,11 +276,14 @@ public class TestPlayerController : MonoBehaviour {
 
 	void FindAllInteractionInInteractionZone()
 	{
+
 		Vector3 center = transform.position + transform.forward + transform.up;
 		Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
 		for (int i = 0; i < cols.Length; i++) {
 			if (cols [i].GetComponent<IContextInteractable> () != null && cols [i].GetComponent<IContextInteractable> ().CanInteract()) {
 				interactables.Add (cols [i].gameObject);
+				print ("HANDLED BUSINESS");	
+
 			}
 		}
 		if (interactables.Count > 0) {
@@ -291,6 +292,8 @@ public class TestPlayerController : MonoBehaviour {
 				if (Vector3.Distance (center, interactables [i].transform.position) < Vector3.Distance (center, closest.transform.position)) {
 					closest = interactables [i];
 				}
+				closestInteractableObject = closest;
+
 			}
 		}
 	}
