@@ -77,7 +77,7 @@ public class VictoriaSecretModel : MonoBehaviour, IInteractable {
 			hasTalked = true;
 		}
 		if (dontLookAtOnInteract) {
-			GetComponent<InteractEvent> ().Interact ();
+			GetComponent<InteractEvent> ().Interact (TestPlayerController.s_instance);
 			CatLogic[] temp = FindObjectsOfType<CatLogic> ();
 			foreach (CatLogic x in temp)
 				Destroy (x.gameObject);
