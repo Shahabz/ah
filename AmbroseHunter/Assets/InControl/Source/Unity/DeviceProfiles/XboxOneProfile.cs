@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -9,10 +6,13 @@ namespace InControl
 	{
 		public XboxOneProfile()
 		{
-			Name = "XBox One Controller";
-			Meta = "XBox One Controller on XBox One";
+			Name = "Xbox One Controller";
+			Meta = "Xbox One Controller on Xbox One";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+			DeviceStyle = InputDeviceStyle.XboxOne;
+
+			IncludePlatforms = new[] {
 				"XBOXONE",
 				"DURANGOOS"
 			};
@@ -63,13 +63,13 @@ namespace InControl
 					Source = Button9
 				},
 				new InputControlMapping {
-					Handle = "Back",
-					Target = InputControlType.Select,
+					Handle = "View",
+					Target = InputControlType.View,
 					Source = Button6
 				},
 				new InputControlMapping {
-					Handle = "Start",
-					Target = InputControlType.Start,
+					Handle = "Menu",
+					Target = InputControlType.Menu,
 					Source = Button7
 				}
 			};

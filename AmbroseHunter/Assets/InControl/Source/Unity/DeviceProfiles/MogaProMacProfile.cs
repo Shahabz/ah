@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -9,10 +6,12 @@ namespace InControl
 	{
 		public MogaProMacProfile()
 		{
-			Name = "MOGA Pro";
-			Meta = "MOGA Pro on Mac";
+			Name = "Moga Pro";
+			Meta = "Moga Pro on Mac";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+
+			IncludePlatforms = new[] {
 				"OS X",
 			};
 

@@ -1,19 +1,20 @@
-﻿using System;
-
-
-namespace InControl
+﻿namespace InControl
 {
 	// @cond nodoc
 	[AutoDiscover]
-	public class NVidiaShieldTabletProfile : UnityInputDeviceProfile
+	public class NVidiaShieldWinProfile : UnityInputDeviceProfile
 	{
-		public NVidiaShieldTabletProfile()
+		public NVidiaShieldWinProfile()
 		{
 			Name = "NVIDIA Shield Controller";
 			Meta = "NVIDIA Shield Controller on Windows";
 
-			SupportedPlatforms = new[] {
-				"Windows"
+			DeviceClass = InputDeviceClass.Controller;
+			DeviceStyle = InputDeviceStyle.NVIDIAShield;
+
+			IncludePlatforms = new[] {
+				"Windows 7",
+				"Windows 8"
 			};
 
 			JoystickRegex = new[] {
@@ -71,16 +72,6 @@ namespace InControl
 					Target = InputControlType.Start,
 					Source = Button7
 				},
-//				new InputControlMapping {
-//					Handle = "System",
-//					Target = InputControlType.System,
-//					Source = Button12
-//				},
-//				new InputControlMapping {
-//					Handle = "Home",
-//					Target = InputControlType.Home,
-//					Source = Button10
-//				}
 			};
 
 			AnalogMappings = new[] {
@@ -113,7 +104,7 @@ namespace InControl
 					SourceRange = InputRange.ZeroToMinusOne,
 					TargetRange = InputRange.ZeroToOne,
 				},
-				
+
 				new InputControlMapping {
 					Handle = "Left Trigger",
 					Target = InputControlType.LeftTrigger,

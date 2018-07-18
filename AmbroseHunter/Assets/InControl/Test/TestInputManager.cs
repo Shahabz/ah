@@ -1,17 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using UnityEngine;
-using InControl;
-
-//#if UNITY_EDITOR
-//using UnityEditor;
-//#endif
-
-
 /**
  * WARNING: This is NOT an example of how to use InControl.
  * It is intended for testing and troubleshooting the library.
@@ -22,23 +8,31 @@ using InControl;
 
 namespace InControl
 {
+	using System;
+	using System.Collections.Generic;
+	using UnityEngine;
+
+
 	public class TestInputManager : MonoBehaviour
 	{
 		public Font font;
 
-		GUIStyle style = new GUIStyle();
-		List<LogMessage> logMessages = new List<LogMessage>();
+		readonly GUIStyle style = new GUIStyle();
+		readonly List<LogMessage> logMessages = new List<LogMessage>();
 		bool isPaused;
 
 
 		void OnEnable()
 		{
+			Application.targetFrameRate = -1;
+			QualitySettings.vSyncCount = 0;
+
 			isPaused = false;
 			Time.timeScale = 1.0f;
 
 			Logger.OnLogMessage += logMessage => logMessages.Add( logMessage );
 
-//			InputManager.HideDevicesWithProfile( typeof( Xbox360MacProfile ) );
+			//InputManager.HideDevicesWithProfile( typeof( Xbox360MacProfile ) );
 
 			InputManager.OnDeviceAttached += inputDevice => Debug.Log( "Attached: " + inputDevice.Name );
 			InputManager.OnDeviceDetached += inputDevice => Debug.Log( "Detached: " + inputDevice.Name );
@@ -46,7 +40,35 @@ namespace InControl
 
 			InputManager.OnUpdate += HandleInputUpdate;
 
-//			UnityInputDeviceManager.DumpSystemDeviceProfiles();
+			//UnityInputDeviceManager.DumpSystemDeviceProfiles();
+
+#if UNITY_TVOS
+			// This turns off the A button being interpreted as Menu on controllers.
+			// See also:
+			// https://docs.unity3d.com/Manual/tvOS.html
+			// https://docs.unity3d.com/ScriptReference/Apple.TV.Remote-allowExitToHome.html
+			UnityEngine.Apple.TV.Remote.allowExitToHome = false;
+
+			// This enables swiping instead of a touch analog pad.
+			// See also:
+			// https://docs.unity3d.com/ScriptReference/Apple.TV.Remote-reportAbsoluteDpadValues.html
+			UnityEngine.Apple.TV.Remote.reportAbsoluteDpadValues = false;
+
+			// This detects whether the attached device is an Apple TV remote and then
+			// configures it to have an appropriate deadzone and state threshhold for
+			// swiping actions.
+			// You may wish to change these values depending on whether you are in game or
+			// navigating menus / UI.
+			//
+			InputManager.OnDeviceAttached += delegate ( InputDevice inputDevice )
+			{
+				if (inputDevice.DeviceClass == InputDeviceClass.Remote)
+				{
+					inputDevice.LeftStick.LowerDeadZone = 0.5f;  // Default is usually 0.2f
+					inputDevice.LeftStick.StateThreshold = 0.5f; // Default is usually 0.0f
+				}
+			};
+#endif
 		}
 
 
@@ -54,64 +76,70 @@ namespace InControl
 		{
 			CheckForPauseButton();
 
-//			var inputDevice = InputManager.ActiveDevice;
-//			if (inputDevice.Direction.Left.WasPressed)
-//			{
-//				Debug.Log( "Left.WasPressed" );
-//			}
-//			if (inputDevice.Direction.Left.WasReleased)
-//			{
-//				Debug.Log( "Left.WasReleased" );
-//			}
-//			if (inputDevice.Action1.WasPressed)
-//			{
-//				Debug.Log( "Action1.WasPressed" );
-//			}
+			//var inputDevice = InputManager.ActiveDevice;
+			//if (inputDevice.Direction.Left.WasPressed)
+			//{
+			//	Debug.Log( "Left.WasPressed" );
+			//}
+			//if (inputDevice.Direction.Left.WasReleased)
+			//{
+			//	Debug.Log( "Left.WasReleased" );
+			//}
+			//if (inputDevice.Action1.WasPressed)
+			//{
+			//	Debug.Log( "Action1.WasPressed" );
+			//}
 
-//			var inputDevice = InputManager.ActiveDevice;
-//			if (inputDevice.IsUnknown)
-//			{
-//				var unknownDevice = inputDevice as UnknownUnityInputDevice;
-//				if (unknownDevice != null)
-//				{
-//					if (inputDevice.GetControl( InputControlType.Button16 ).WasReleased)
-//					{
-//						unknownDevice.TakeSnapshot();
-//					}
-//
-//					var analog = unknownDevice.GetFirstPressedAnalog();
-//					if (analog)
-//					{
-//						Debug.Log( analog.Control + " : " + analog.SourceRange );
-//					}
-//				}
-//			}
+			//var inputDevice = InputManager.ActiveDevice;
+			//var control = inputDevice.Action1;
+			//if (control.WasReleased)
+			//{
+			//	InputManager.ClearInputState();
+			//	Debug.Log( "WasPressed = " + control.WasPressed );
+			//	Debug.Log( "WasReleased = " + control.WasReleased );
+			//}
+
+			var devicesCount = InputManager.Devices.Count;
+			for (var i = 0; i < devicesCount; i++)
+			{
+				var inputDevice = InputManager.Devices[i];
+				inputDevice.Vibrate( inputDevice.LeftTrigger, inputDevice.RightTrigger );
+			}
 		}
 
 
 		void Start()
 		{
-//			var unityDeviceManager = InputManager.GetDeviceManager<UnityInputDeviceManager>();
-//			unityDeviceManager.ReloadDevices();
+			//var unityDeviceManager = InputManager.GetDeviceManager<UnityInputDeviceManager>();
+			//unityDeviceManager.ReloadDevices();
 
-//			Debug.Log( "IntPtr.Size = " + IntPtr.Size );
+			//Debug.Log( "IntPtr.Size = " + IntPtr.Size );
+
+#if UNITY_IOS || UNITY_TVOS
+			ICadeDeviceManager.Active = true;
+#endif
 		}
 
 
 		void Update()
 		{
-//			Thread.Sleep( 250 );
+			//Thread.Sleep( 250 );
 
 			if (Input.GetKeyDown( KeyCode.R ))
 			{
-				Application.LoadLevel( "TestInputManager" );
+				Utility.LoadScene( "TestInputManager" );
+			}
+
+			if (Input.GetKeyDown( KeyCode.E ))
+			{
+				InputManager.Enabled = !InputManager.Enabled;
 			}
 		}
 
 
 		void CheckForPauseButton()
 		{
-			if (Input.GetKeyDown( KeyCode.P ) || InputManager.MenuWasPressed)
+			if (Input.GetKeyDown( KeyCode.P ) || InputManager.CommandWasPressed)
 			{
 				Time.timeScale = isPaused ? 1.0f : 0.0f;
 				isPaused = !isPaused;
@@ -127,25 +155,18 @@ namespace InControl
 
 		void OnGUI()
 		{
-			var w = 300;
+			var w = Mathf.FloorToInt( Screen.width / Mathf.Max( 1, InputManager.Devices.Count ) );
 			var x = 10;
 			var y = 10;
-			var lineHeight = 15;
+			const int lineHeight = 15;
 
 			GUI.skin.font = font;
 			SetColor( Color.white );
 
-			string info = "Devices:";
+			var info = "Devices:";
 			info += " (Platform: " + InputManager.Platform + ")";
-//			info += " (Joysticks " + InputManager.JoystickHash + ")";
+			//info += " (Joysticks " + InputManager.JoystickHash + ")";
 			info += " " + InputManager.ActiveDevice.Direction.Vector;
-
-//			#if UNITY_EDITOR
-//			if (EditorWindow.focusedWindow != null)
-//			{
-//				info += " " + EditorWindow.focusedWindow.ToString();
-//			}
-//			#endif
 
 			if (isPaused)
 			{
@@ -159,15 +180,29 @@ namespace InControl
 
 			foreach (var inputDevice in InputManager.Devices)
 			{
-				bool active = InputManager.ActiveDevice == inputDevice;
-				Color color = active ? Color.yellow : Color.white;
+				var color = inputDevice.IsActive ? new Color(0.9f, 0.7f, 0.2f) : Color.white;
+
+				var isActiveDevice = InputManager.ActiveDevice == inputDevice;
+				if (isActiveDevice)
+				{
+					color = new Color(1.0f, 0.9f, 0.0f);
+				}
 
 				y = 35;
 
-				SetColor( color );
-
-				GUI.Label( new Rect( x, y, x + w, y + 10 ), inputDevice.Name, style );
+				if (inputDevice.IsUnknown)
+				{
+					SetColor( Color.red );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), "Unknown Device", style );
+				}
+				else
+				{
+					SetColor( color );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), inputDevice.Name, style );
+				}
 				y += lineHeight;
+
+				SetColor( color );
 
 				if (inputDevice.IsUnknown)
 				{
@@ -175,15 +210,34 @@ namespace InControl
 					y += lineHeight;
 				}
 
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), "Style: " + inputDevice.DeviceStyle, style );
+				y += lineHeight;
+
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), "GUID: " + inputDevice.GUID, style );
+				y += lineHeight;
+
 				GUI.Label( new Rect( x, y, x + w, y + 10 ), "SortOrder: " + inputDevice.SortOrder, style );
 				y += lineHeight;
 
-				GUI.Label( new Rect( x, y, x + w, y + 10 ), "LastChangeTick: " + inputDevice.LastChangeTick, style );
+//				GUI.Label( new Rect( x, y, x + w, y + 10 ), "LastChangeTick: " + inputDevice.LastChangeTick, style );
+//				y += lineHeight;
+
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), "LastInputTick: " + inputDevice.LastInputTick, style );
+				y += lineHeight;
+
+				var nativeDevice = inputDevice as NativeInputDevice;
+				if (nativeDevice != null)
+				{
+					var nativeDeviceInfo = string.Format( "VID = 0x{0:x}, PID = 0x{1:x}, VER = 0x{2:x}", nativeDevice.Info.vendorID, nativeDevice.Info.productID, nativeDevice.Info.versionNumber );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), nativeDeviceInfo, style );
+					y += lineHeight;
+				}
+
 				y += lineHeight;
 
 				foreach (var control in inputDevice.Controls)
 				{
-					if (control != null)
+					if (control != null && !Utility.TargetIsAlias( control.Target ))
 					{
 						string controlName;
 
@@ -205,18 +259,29 @@ namespace InControl
 
 				y += lineHeight;
 
-				color = active ? new Color( 1.0f, 0.7f, 0.2f ) : Color.white;
+				color = isActiveDevice ? new Color(0.85f, 0.65f, 0.12f) : Color.white;
 				if (inputDevice.IsKnown)
 				{
-					var control = inputDevice.LeftStickX;
+					var control = inputDevice.Command;
 					SetColor( control.State ? Color.green : color );
-					var label = string.Format( "{0} {1}", "Left Stick X", control.State ? "= " + control.Value : "" );
+					var label = string.Format( "{0} {1}", "Command", control.State ? "= " + control.Value : "" );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
+					y += lineHeight;
+
+					control = inputDevice.LeftStickX;
+					SetColor( control.State ? Color.green : color );
+					label = string.Format( "{0} {1}", "Left Stick X", control.State ? "= " + control.Value : "" );
 					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
 					y += lineHeight;
 
 					control = inputDevice.LeftStickY;
 					SetColor( control.State ? Color.green : color );
 					label = string.Format( "{0} {1}", "Left Stick Y", control.State ? "= " + control.Value : "" );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
+					y += lineHeight;
+
+					SetColor( inputDevice.LeftStick.State ? Color.green : color );
+					label = string.Format( "{0} {1}", "Left Stick A", inputDevice.LeftStick.State ? "= " + inputDevice.LeftStick.Angle : "" );
 					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
 					y += lineHeight;
 
@@ -229,6 +294,11 @@ namespace InControl
 					control = inputDevice.RightStickY;
 					SetColor( control.State ? Color.green : color );
 					label = string.Format( "{0} {1}", "Right Stick Y", control.State ? "= " + control.Value : "" );
+					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
+					y += lineHeight;
+
+					SetColor( inputDevice.RightStick.State ? Color.green : color );
+					label = string.Format( "{0} {1}", "Right Stick A", inputDevice.RightStick.State ? "= " + inputDevice.RightStick.Angle : "" );
 					GUI.Label( new Rect( x, y, x + w, y + 10 ), label, style );
 					y += lineHeight;
 
@@ -252,7 +322,7 @@ namespace InControl
 					GUI.Label( new Rect( x, y, x + w, y + 10 ), "AnyButton = " + anyButton.Handle, style );
 				}
 
-				x += 200;
+				x += w;
 			}
 
 
@@ -260,36 +330,97 @@ namespace InControl
 			SetColor( Color.white );
 			x = 10;
 			y = Screen.height - (10 + lineHeight);
-			for (int i = logMessages.Count - 1; i >= 0; i--)
+			for (var i = logMessages.Count - 1; i >= 0; i--)
 			{
 				var logMessage = logMessages[i];
-				SetColor( logColors[(int) logMessage.type] );
-				foreach (var line in logMessage.text.Split('\n'))
+				if (logMessage.type != LogMessageType.Info)
 				{
-					GUI.Label( new Rect( x, y, Screen.width, y + 10 ), line, style );
-					y -= lineHeight;
+					SetColor( logColors[(int) logMessage.type] );
+					foreach (var line in logMessage.text.Split( '\n' ))
+					{
+						GUI.Label( new Rect( x, y, Screen.width, y + 10 ), line, style );
+						y -= lineHeight;
+					}
 				}
+			}
+
+
+			//DrawUnityInputDebugger();
+		}
+
+
+		void DrawUnityInputDebugger()
+		{
+			var w = 300;
+			var x = Screen.width / 2;
+			var y = 10;
+			var lineHeight = 20;
+			SetColor( Color.white );
+
+			var joystickNames = Input.GetJoystickNames();
+			var numJoysticks = joystickNames.Length;
+			for (var i = 0; i < numJoysticks; i++)
+			{
+				var joystickName = joystickNames[i];
+				var joystickId = i + 1;
+
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), "Joystick " + joystickId + ": \"" + joystickName + "\"", style );
+				y += lineHeight;
+
+				var buttonInfo = "Buttons: ";
+				for (var button = 0; button < 20; button++)
+				{
+					var buttonQuery = "joystick " + joystickId + " button " + button;
+					var buttonState = Input.GetKey( buttonQuery );
+					if (buttonState)
+					{
+						buttonInfo += "B" + button + "  ";
+					}
+				}
+
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), buttonInfo, style );
+				y += lineHeight;
+
+				var analogInfo = "Analogs: ";
+				for (var analog = 0; analog < 20; analog++)
+				{
+					var analogQuery = "joystick " + joystickId + " analog " + analog;
+					var analogValue = Input.GetAxisRaw( analogQuery );
+
+					if (Utility.AbsoluteIsOverThreshold( analogValue, 0.2f ))
+					{
+						analogInfo += "A" + analog + ": " + analogValue.ToString( "0.00" ) + "  ";
+					}
+				}
+
+				GUI.Label( new Rect( x, y, x + w, y + 10 ), analogInfo, style );
+				y += lineHeight;
+
+				y += 25;
 			}
 		}
 
 
 		void OnDrawGizmos()
 		{
+			var inputDevice = InputManager.ActiveDevice;
+			//var vector = new Vector2( inputDevice.LeftStickX, inputDevice.LeftStickY );
+			var vector = inputDevice.Direction.Vector;
+
 			Gizmos.color = Color.blue;
 			var lz = new Vector2( -3.0f, -1.0f );
-			var lp = lz + (InputManager.ActiveDevice.Direction.Vector * 2.0f);
+			var lp = lz + (vector * 2.0f);
 			Gizmos.DrawSphere( lz, 0.1f );
 			Gizmos.DrawLine( lz, lp );
 			Gizmos.DrawSphere( lp, 1.0f );
 
 			Gizmos.color = Color.red;
 			var rz = new Vector2( +3.0f, -1.0f );
-			var rp = rz + (InputManager.ActiveDevice.RightStick.Vector * 2.0f);
+			var rp = rz + (inputDevice.RightStick.Vector * 2.0f);
 			Gizmos.DrawSphere( rz, 0.1f );
 			Gizmos.DrawLine( rz, rp );
 			Gizmos.DrawSphere( rp, 1.0f );
 		}
 	}
 }
-
 

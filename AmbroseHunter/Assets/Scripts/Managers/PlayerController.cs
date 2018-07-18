@@ -11,8 +11,23 @@ public class PlayerController : MonoBehaviour {
 	public GameObject[] WalkingStateGameObjects, DrivingStateGameObjects;
 	public MonoBehaviour[] WalkingStateObjects, DrivingStateObjects;
 
+    [SerializeField]
+    bool bDebugStartInCar;
 
-	void Awake()
+    private void Start()
+    {
+        if (bDebugStartInCar)
+        {
+            Vector3 startPos = GameObject.Find("DebugStartPositionCar").transform.position;
+            SwitchToDrivingState();
+            foreach (GameObject x in DrivingStateGameObjects)
+            {
+                x.transform.position = startPos;
+            }
+        }
+    }
+
+    void Awake()
 	{
 		if (s_instance == null)
 		{

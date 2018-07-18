@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -12,7 +9,9 @@ namespace InControl
 			Name = "Valve Streaming Gamepad";
 			Meta = "Valve Streaming Gamepad on Windows";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+
+			IncludePlatforms = new[] {
 				"Windows"
 			};
 
@@ -86,8 +85,8 @@ namespace InControl
 
 				DPadLeftMapping( Analog5 ),
 				DPadRightMapping( Analog5 ),
-				DPadUpMapping( Analog6 ),
-				DPadDownMapping( Analog6 ),
+				DPadUpMapping2( Analog6 ),
+				DPadDownMapping2( Analog6 ),
 
 				new InputControlMapping {
 					Handle = "Left Trigger",
@@ -108,4 +107,3 @@ namespace InControl
 	}
 	// @endcond
 }
-

@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -9,10 +6,12 @@ namespace InControl
 	{
 		public MogaProLinuxProfile()
 		{
-			Name = "MOGA Pro";
-			Meta = "MOGA Pro on Linux";
+			Name = "Moga Pro";
+			Meta = "Moga Pro on Linux";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+
+			IncludePlatforms = new[] {
 				"Linux",
 			};
 

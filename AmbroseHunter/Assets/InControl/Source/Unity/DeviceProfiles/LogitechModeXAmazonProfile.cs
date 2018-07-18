@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace InControl
+﻿namespace InControl
 {
 	// @cond nodoc
 	[AutoDiscover]
@@ -12,7 +9,10 @@ namespace InControl
 			Name = "Logitech Controller";
 			Meta = "Logitech Controller on Amazon Fire TV (Mode X)";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+			DeviceStyle = InputDeviceStyle.Xbox360;
+
+			IncludePlatforms = new[] {
 				"Amazon AFT"
 			};
 
@@ -70,6 +70,11 @@ namespace InControl
 					Handle = "Start",
 					Target = InputControlType.Start,
 					Source = MenuKey
+				},
+				new InputControlMapping {
+					Handle = "Start",
+					Target = InputControlType.Start,
+					Source = Button10
 				}
 			};
 

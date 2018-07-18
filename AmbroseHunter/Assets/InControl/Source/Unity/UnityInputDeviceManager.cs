@@ -1,21 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using UnityEngine;
-
-
 namespace InControl
 {
+	using System;
+	using System.Collections.Generic;
+	using UnityEngine;
+
+
 	public class UnityInputDeviceManager : InputDeviceManager
 	{
-		float deviceRefreshTimer = 0.0f;
 		const float deviceRefreshInterval = 1.0f;
-		List<InputDeviceProfile> systemDeviceProfiles = new List<InputDeviceProfile>();
-		List<InputDeviceProfile> customDeviceProfiles = new List<InputDeviceProfile>();
+		float deviceRefreshTimer = 0.0f;
 
-		bool hasJoystickHash;
+		readonly List<UnityInputDeviceProfileBase> systemDeviceProfiles = new List<UnityInputDeviceProfileBase>( UnityInputDeviceProfileList.Profiles.Length );
+		readonly List<UnityInputDeviceProfileBase> customDeviceProfiles = new List<UnityInputDeviceProfileBase>();
+
+		string[] joystickNames;
+		int lastJoystickCount;
+		int lastJoystickHash;
+		int joystickCount;
 		int joystickHash;
 
 
@@ -23,6 +24,7 @@ namespace InControl
 		{
 			AddSystemDeviceProfiles();
 			// LoadDeviceProfiles();
+			QueryJoystickInfo();
 			AttachDevices();
 		}
 
@@ -30,11 +32,12 @@ namespace InControl
 		public override void Update( ulong updateTick, float deltaTime )
 		{
 			deviceRefreshTimer += deltaTime;
-			if (!hasJoystickHash || deviceRefreshTimer >= deviceRefreshInterval)
+			if (deviceRefreshTimer >= deviceRefreshInterval)
 			{
 				deviceRefreshTimer = 0.0f;
 
-				if (joystickHash != JoystickHash)
+				QueryJoystickInfo();
+				if (JoystickInfoHasChanged)
 				{
 					Logger.LogInfo( "Change in attached Unity joysticks detected; refreshing device list." );
 					DetachDevices();
@@ -44,28 +47,49 @@ namespace InControl
 		}
 
 
+		void QueryJoystickInfo()
+		{
+			joystickNames = Input.GetJoystickNames();
+			joystickCount = joystickNames.Length;
+			joystickHash = 17 * 31 + joystickCount;
+			for (var i = 0; i < joystickCount; i++)
+			{
+				joystickHash = joystickHash * 31 + joystickNames[i].GetHashCode();
+			}
+		}
+
+
+		bool JoystickInfoHasChanged
+		{
+			get { return joystickHash != lastJoystickHash || joystickCount != lastJoystickCount; }
+		}
+
+
 		void AttachDevices()
 		{
 			AttachKeyboardDevices();
 			AttachJoystickDevices();
-			joystickHash = JoystickHash;
-			hasJoystickHash = true;
+
+			lastJoystickCount = joystickCount;
+			lastJoystickHash = joystickHash;
 		}
 
 
 		void DetachDevices()
 		{
 			var deviceCount = devices.Count;
-			for (int i = 0; i < deviceCount; i++)
+			for (var i = 0; i < deviceCount; i++)
 			{
 				InputManager.DetachDevice( devices[i] );
 			}
+
 			devices.Clear();
 		}
 
 
 		public void ReloadDevices()
 		{
+			QueryJoystickInfo();
 			DetachDevices();
 			AttachDevices();
 		}
@@ -80,8 +104,8 @@ namespace InControl
 
 		void AttachKeyboardDevices()
 		{
-			int deviceProfileCount = systemDeviceProfiles.Count;
-			for (int i = 0; i < deviceProfileCount; i++)
+			var deviceProfileCount = systemDeviceProfiles.Count;
+			for (var i = 0; i < deviceProfileCount; i++)
 			{
 				var deviceProfile = systemDeviceProfiles[i];
 				if (deviceProfile.IsNotJoystick && deviceProfile.IsSupportedOnThisPlatform)
@@ -96,9 +120,7 @@ namespace InControl
 		{
 			try
 			{
-				var joystickNames = Input.GetJoystickNames();
-				var joystickNameCount = joystickNames.Length;
-				for (int i = 0; i < joystickNameCount; i++)
+				for (var i = 0; i < joystickCount; i++)
 				{
 					DetectJoystickDevice( i + 1, joystickNames[i] );
 				}
@@ -111,22 +133,39 @@ namespace InControl
 		}
 
 
+		bool HasAttachedDeviceWithJoystickId( int unityJoystickId )
+		{
+			var deviceCount = devices.Count;
+			for (var i = 0; i < deviceCount; i++)
+			{
+				var device = devices[i] as UnityInputDevice;
+				if (device != null)
+				{
+					if (device.JoystickId == unityJoystickId)
+					{
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+
 		void DetectJoystickDevice( int unityJoystickId, string unityJoystickName )
 		{
-			#if UNITY_PS4
+			if (HasAttachedDeviceWithJoystickId( unityJoystickId ))
+			{
+				return;
+			}
+
+#if UNITY_PS4
 			if (unityJoystickName == "Empty")
 			{
 				// On PS4 console, disconnected controllers may have this name.
 				return;
 			}
 			#endif
-
-			if (unityJoystickName == "WIRED CONTROLLER" ||
-			    unityJoystickName == " WIRED CONTROLLER")
-			{
-				// Ignore Steam controller for now.
-				return;
-			}
 
 			if (unityJoystickName.IndexOf( "webcam", StringComparison.OrdinalIgnoreCase ) != -1)
 			{
@@ -139,7 +178,10 @@ namespace InControl
 			{
 				if (Application.platform == RuntimePlatform.OSXEditor ||
 				    Application.platform == RuntimePlatform.OSXPlayer
-				    )
+#if !UNITY_5_4_OR_NEWER
+					|| Application.platform == RuntimePlatform.OSXWebPlayer
+#endif
+				)
 				{
 					if (unityJoystickName == "Unknown Wireless Controller")
 					{
@@ -153,7 +195,11 @@ namespace InControl
 			if (InputManager.UnityVersion >= new VersionInfo( 4, 6, 3, 0 ))
 			{
 				if (Application.platform == RuntimePlatform.WindowsEditor ||
-				    Application.platform == RuntimePlatform.WindowsPlayer)
+				    Application.platform == RuntimePlatform.WindowsPlayer
+#if !UNITY_5_4_OR_NEWER
+					|| Application.platform == RuntimePlatform.WindowsWebPlayer
+#endif
+				)
 				{
 					if (String.IsNullOrEmpty( unityJoystickName ))
 					{
@@ -162,7 +208,7 @@ namespace InControl
 				}
 			}
 
-			InputDeviceProfile deviceProfile = null;
+			UnityInputDeviceProfileBase deviceProfile = null;
 
 			if (deviceProfile == null)
 			{
@@ -186,38 +232,23 @@ namespace InControl
 
 			if (deviceProfile == null)
 			{
-				Logger.LogWarning( "Device " + unityJoystickId + " with name \"" + unityJoystickName + "\" does not match any supported profiles and will be considered an unknown controller." );
-				var unknownDeviceProfile = new UnknownUnityDeviceProfile( unityJoystickName );
-				var joystickDevice = new UnknownUnityInputDevice( unknownDeviceProfile, unityJoystickId );
+				var joystickDevice = new UnityInputDevice( unityJoystickId, unityJoystickName );
 				AttachDevice( joystickDevice );
+				Debug.Log( "[InControl] Joystick " + unityJoystickId + ": \"" + unityJoystickName + "\"" );
+				Logger.LogWarning( "Device " + unityJoystickId + " with name \"" + unityJoystickName + "\" does not match any supported profiles and will be considered an unknown controller." );
 				return;
 			}
 
 			if (!deviceProfile.IsHidden)
 			{
-				var joystickDevice = new UnityInputDevice( deviceProfile, unityJoystickId );
+				var joystickDevice = new UnityInputDevice( deviceProfile, unityJoystickId, unityJoystickName );
 				AttachDevice( joystickDevice );
+				//				Debug.Log( "[InControl] Joystick " + unityJoystickId + ": \"" + unityJoystickName + "\"" );
 				Logger.LogInfo( "Device " + unityJoystickId + " matched profile " + deviceProfile.GetType().Name + " (" + deviceProfile.Name + ")" );
 			}
 			else
 			{
 				Logger.LogInfo( "Device " + unityJoystickId + " matching profile " + deviceProfile.GetType().Name + " (" + deviceProfile.Name + ")" + " is hidden and will not be attached." );
-			}
-		}
-
-
-		int JoystickHash
-		{
-			get
-			{
-				var joystickNames = Input.GetJoystickNames();
-				var joystickNamesCount = joystickNames.Length;
-				int hash = 17 * 31 + joystickNamesCount;
-				for (int i = 0; i < joystickNamesCount; i++)
-				{
-					hash = hash * 31 + joystickNames[i].GetHashCode();
-				}
-				return hash;
 			}
 		}
 
@@ -307,4 +338,3 @@ namespace InControl
 		/**/
 	}
 }
-

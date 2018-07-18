@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -12,8 +9,12 @@ namespace InControl
 			Name = "XBox One Controller";
 			Meta = "XBox One Controller on Windows";
 
-			SupportedPlatforms = new[] {
-				"Windows"
+			DeviceClass = InputDeviceClass.Controller;
+			DeviceStyle = InputDeviceStyle.XboxOne;
+
+			IncludePlatforms = new[] {
+				"Windows 7",
+				"Windows 8"
 			};
 
 			JoystickNames = new[] {
@@ -68,7 +69,7 @@ namespace InControl
 				},
 				new InputControlMapping {
 					Handle = "Menu",
-					Target = InputControlType.Start,
+					Target = InputControlType.Menu,
 					Source = Button7
 				}
 			};

@@ -1,11 +1,9 @@
-﻿using System;
-using UnityEngine;
-
-
-namespace InControl
+﻿namespace InControl
 {
 	public class MouseBindingSourceListener : BindingSourceListener
 	{
+		public static float ScrollWheelThreshold = 0.001f;
+
 		Mouse detectFound;
 		int detectPhase;
 
@@ -19,11 +17,6 @@ namespace InControl
 
 		public BindingSource Listen( BindingListenOptions listenOptions, InputDevice device )
 		{
-			if (!listenOptions.IncludeMouseButtons)
-			{
-				return null;
-			}
-
 			if (detectFound != Mouse.None)
 			{
 				if (!IsPressed( detectFound ))
@@ -37,7 +30,7 @@ namespace InControl
 				}
 			}
 
-			var control = ListenForControl();
+			var control = ListenForControl( listenOptions );
 			if (control != Mouse.None)
 			{
 				if (detectPhase == 1)
@@ -60,40 +53,42 @@ namespace InControl
 
 		bool IsPressed( Mouse control )
 		{
-			if (control == Mouse.LeftButton)
+			switch (control)
 			{
-				return Input.GetMouseButton( 0 );
+			case Mouse.NegativeScrollWheel:
+				return MouseBindingSource.NegativeScrollWheelIsActive( ScrollWheelThreshold );
+			case Mouse.PositiveScrollWheel:
+				return MouseBindingSource.PositiveScrollWheelIsActive( ScrollWheelThreshold );
+			default:
+				return MouseBindingSource.ButtonIsPressed( control );
 			}
-
-			if (control == Mouse.RightButton)
-			{
-				return Input.GetMouseButton( 1 );
-			}
-
-			if (control == Mouse.MiddleButton)
-			{
-				return Input.GetMouseButton( 2 );
-			}
-
-			return false;
 		}
 
 
-		Mouse ListenForControl()
+		Mouse ListenForControl( BindingListenOptions listenOptions )
 		{
-			if (Input.GetMouseButton( 0 ))
+			if (listenOptions.IncludeMouseButtons)
 			{
-				return Mouse.LeftButton;
+				for (var control = Mouse.None; control <= Mouse.Button9; control++)
+				{
+					if (MouseBindingSource.ButtonIsPressed( control ))
+					{
+						return control;
+					}
+				}
 			}
 
-			if (Input.GetMouseButton( 1 ))
+			if (listenOptions.IncludeMouseScrollWheel)
 			{
-				return Mouse.RightButton;
-			}
+				if (MouseBindingSource.NegativeScrollWheelIsActive( ScrollWheelThreshold ))
+				{
+					return Mouse.NegativeScrollWheel;
+				}
 
-			if (Input.GetMouseButton( 2 ))
-			{
-				return Mouse.MiddleButton;
+				if (MouseBindingSource.PositiveScrollWheelIsActive( ScrollWheelThreshold ))
+				{
+					return Mouse.PositiveScrollWheel;
+				}
 			}
 
 			return Mouse.None;

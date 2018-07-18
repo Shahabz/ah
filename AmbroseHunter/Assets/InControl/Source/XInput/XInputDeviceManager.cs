@@ -1,14 +1,13 @@
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using UnityEngine;
-using XInputDotNetPure;
-
-
 namespace InControl
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Threading;
+	using UnityEngine;
+	using XInputDotNetPure;
+
+
 	public class XInputDeviceManager : InputDeviceManager
 	{
 		bool[] deviceConnected = new bool[] { false, false, false, false };
@@ -33,14 +32,14 @@ namespace InControl
 
 			bufferSize = (int) Math.Max( InputManager.XInputBufferSize, 1 );
 
-			for (int deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
+			for (var deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
 			{
 				gamePadState[deviceIndex] = new RingBuffer<GamePadState>( bufferSize );
 			}
 
 			StartWorker();
 
-			for (int deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
+			for (var deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
 			{
 				devices.Add( new XInputDevice( deviceIndex, this ) );
 			}
@@ -53,7 +52,7 @@ namespace InControl
 		{
 			if (thread == null)
 			{
-				thread = new Thread( SetState );
+				thread = new Thread( Worker );
 				thread.IsBackground = true;
 				thread.Start();
 			}
@@ -71,15 +70,15 @@ namespace InControl
 		}
 
 
-		public void SetState()
+		void Worker()
 		{
 			while (true)
 			{
-				for (int deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
+				for (var deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
 				{
 					gamePadState[deviceIndex].Enqueue( GamePad.GetState( (PlayerIndex) deviceIndex ) );
 				}
-				
+
 				Thread.Sleep( timeStep );
 			}
 		}
@@ -93,7 +92,7 @@ namespace InControl
 
 		public override void Update( ulong updateTick, float deltaTime )
 		{
-			for (int deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
+			for (var deviceIndex = 0; deviceIndex < maxDevices; deviceIndex++)
 			{
 				var device = devices[deviceIndex] as XInputDevice;
 
@@ -146,18 +145,20 @@ namespace InControl
 				}
 				return false;
 			}
-			
+
 			return true;
 		}
 
 
-		public static void Enable()
+		internal static void Enable()
 		{
 			var errors = new List<string>();
 			if (XInputDeviceManager.CheckPlatformSupport( errors ))
 			{
 				InputManager.HideDevicesWithProfile( typeof(Xbox360WinProfile) );
 				InputManager.HideDevicesWithProfile( typeof(XboxOneWinProfile) );
+				InputManager.HideDevicesWithProfile( typeof(XboxOneWin10Profile) );
+				InputManager.HideDevicesWithProfile( typeof(XboxOneWin10AEProfile) );
 				InputManager.HideDevicesWithProfile( typeof(LogitechF310ModeXWinProfile) );
 				InputManager.HideDevicesWithProfile( typeof(LogitechF510ModeXWinProfile) );
 				InputManager.HideDevicesWithProfile( typeof(LogitechF710ModeXWinProfile) );

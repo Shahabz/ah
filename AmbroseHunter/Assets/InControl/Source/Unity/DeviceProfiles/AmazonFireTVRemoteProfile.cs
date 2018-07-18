@@ -1,18 +1,18 @@
-﻿using System;
-
-
-namespace InControl
+﻿namespace InControl
 {
 	// @cond nodoc
 	[AutoDiscover]
-	public class AmazonFireTVRemote : UnityInputDeviceProfile
+	public class AmazonFireTVRemoteProfile : UnityInputDeviceProfile
 	{
-		public AmazonFireTVRemote()
+		public AmazonFireTVRemoteProfile()
 		{
 			Name = "Amazon Fire TV Remote";
 			Meta = "Amazon Fire TV Remote on Amazon Fire TV";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Remote;
+			DeviceStyle = InputDeviceStyle.AmazonFireTV;
+
+			IncludePlatforms = new[] {
 				"Amazon AFT",
 			};
 

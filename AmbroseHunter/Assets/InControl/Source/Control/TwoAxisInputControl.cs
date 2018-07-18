@@ -1,11 +1,13 @@
-using System;
-using UnityEngine;
-
-
 namespace InControl
 {
+	using System;
+	using UnityEngine;
+
+
 	public class TwoAxisInputControl : IInputControl
 	{
+		public static readonly TwoAxisInputControl Null = new TwoAxisInputControl();
+
 		public float X { get; protected set; }
 		public float Y { get; protected set; }
 
@@ -16,8 +18,12 @@ namespace InControl
 
 		public ulong UpdateTick { get; protected set; }
 
-		public float LowerDeadZone = 0.0f;
-		public float UpperDeadZone = 1.0f;
+		public DeadZoneFunc DeadZoneFunc = DeadZone.Circular;
+
+		float sensitivity = 1.0f;
+		float lowerDeadZone = 0.0f;
+		float upperDeadZone = 1.0f;
+		float stateThreshold = 0.0f;
 
 		public bool Raw;
 
@@ -26,6 +32,8 @@ namespace InControl
 		Vector2 thisValue;
 		Vector2 lastValue;
 
+		bool clearInputState;
+
 
 		public TwoAxisInputControl()
 		{
@@ -33,6 +41,25 @@ namespace InControl
 			Right = new OneAxisInputControl();
 			Up = new OneAxisInputControl();
 			Down = new OneAxisInputControl();
+		}
+
+
+		public void ClearInputState()
+		{
+			Left.ClearInputState();
+			Right.ClearInputState();
+			Up.ClearInputState();
+			Down.ClearInputState();
+
+			lastState = false;
+			lastValue = Vector2.zero;
+			thisState = false;
+			thisValue = Vector2.zero;
+
+			X = 0.0f;
+			Y = 0.0f;
+
+			clearInputState = true;
 		}
 
 
@@ -48,14 +75,7 @@ namespace InControl
 			lastState = thisState;
 			lastValue = thisValue;
 
-			if (Raw)
-			{
-				thisValue = new Vector2( x, y );
-			}
-			else
-			{
-				thisValue = Utility.ApplyCircularDeadZone( x, y, LowerDeadZone, UpperDeadZone );
-			}
+			thisValue = Raw ? new Vector2( x, y ) : DeadZoneFunc( x, y, LowerDeadZone, UpperDeadZone );
 
 			X = thisValue.x;
 			Y = thisValue.y;
@@ -76,6 +96,15 @@ namespace InControl
 
 			thisState = Up.State || Down.State || Left.State || Right.State;
 
+			if (clearInputState)
+			{
+				lastState = thisState;
+				lastValue = thisValue;
+				clearInputState = false;
+				HasChanged = false;
+				return;
+			}
+
 			if (thisValue != lastValue)
 			{
 				UpdateTick = updateTick;
@@ -88,30 +117,62 @@ namespace InControl
 		}
 
 
-		internal void UpdateWithAxes( OneAxisInputControl horizontalAxis, OneAxisInputControl verticalAxis, ulong updateTick, float deltaTime )
+		public float Sensitivity
 		{
-			LowerDeadZone = Mathf.Max( horizontalAxis.LowerDeadZone, verticalAxis.LowerDeadZone );
-			UpperDeadZone = Mathf.Min( horizontalAxis.UpperDeadZone, verticalAxis.UpperDeadZone );
-			Raw = horizontalAxis.Raw || verticalAxis.Raw;
-			UpdateWithAxes( horizontalAxis.RawValue, verticalAxis.RawValue, updateTick, deltaTime );
+			get { return sensitivity; }
+
+			set
+			{
+				sensitivity = Mathf.Clamp01( value );
+				Left.Sensitivity = sensitivity;
+				Right.Sensitivity = sensitivity;
+				Up.Sensitivity = sensitivity;
+				Down.Sensitivity = sensitivity;
+			}
 		}
 
 
-		float stateThreshold = 0.0f;
 		public float StateThreshold
 		{
+			get { return stateThreshold; }
+
 			set
 			{
-				stateThreshold = value;
-				Left.StateThreshold = value;
-				Right.StateThreshold = value;
-				Up.StateThreshold = value;
-				Down.StateThreshold = value;
+				stateThreshold = Mathf.Clamp01( value );
+				Left.StateThreshold = stateThreshold;
+				Right.StateThreshold = stateThreshold;
+				Up.StateThreshold = stateThreshold;
+				Down.StateThreshold = stateThreshold;
 			}
+		}
 
-			get
+
+		public float LowerDeadZone
+		{
+			get { return lowerDeadZone; }
+
+			set
 			{
-				return stateThreshold;
+				lowerDeadZone = Mathf.Clamp01( value );
+				Left.LowerDeadZone = lowerDeadZone;
+				Right.LowerDeadZone = lowerDeadZone;
+				Up.LowerDeadZone = lowerDeadZone;
+				Down.LowerDeadZone = lowerDeadZone;
+			}
+		}
+
+
+		public float UpperDeadZone
+		{
+			get { return upperDeadZone; }
+
+			set
+			{
+				upperDeadZone = Mathf.Clamp01( value );
+				Left.UpperDeadZone = upperDeadZone;
+				Right.UpperDeadZone = upperDeadZone;
+				Up.UpperDeadZone = upperDeadZone;
+				Down.UpperDeadZone = upperDeadZone;
 			}
 		}
 
@@ -129,28 +190,24 @@ namespace InControl
 
 
 		public Vector2 Value
-		{ 
+		{
 			get { return thisValue; }
 		}
 
 
 		public Vector2 LastValue
-		{ 
+		{
 			get { return lastValue; }
 		}
 
 
 		public Vector2 Vector
-		{ 
+		{
 			get { return thisValue; }
 		}
 
 
-		public bool HasChanged
-		{
-			get;
-			protected set;
-		}
+		public bool HasChanged { get; protected set; }
 
 
 		public bool IsPressed
@@ -168,6 +225,12 @@ namespace InControl
 		public bool WasReleased
 		{
 			get { return !thisState && lastState; }
+		}
+
+
+		public float Angle
+		{
+			get { return Utility.VectorToAngle( thisValue ); }
 		}
 
 
@@ -189,4 +252,3 @@ namespace InControl
 		}
 	}
 }
-

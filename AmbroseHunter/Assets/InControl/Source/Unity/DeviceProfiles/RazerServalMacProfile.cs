@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -8,15 +5,17 @@ namespace InControl
 	public class RazerServalMacProfile : UnityInputDeviceProfile
 	{
 		// Connected over USB or Bluetooth.
-		// No trigger support, sadly. They're probably out of the button
-		// element range 0 to 19 Unity supports.
+		// No trigger support, sadly. They're probably out of the
+		// element range Unity supports.
 		//
 		public RazerServalMacProfile()
 		{
 			Name = "Razer Serval Controller";
 			Meta = "Razer Serval Controller on Mac";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+
+			IncludePlatforms = new[] {
 				"OS X"
 			};
 

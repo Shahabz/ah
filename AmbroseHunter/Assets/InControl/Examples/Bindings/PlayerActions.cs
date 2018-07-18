@@ -1,10 +1,9 @@
-﻿using System;
-using InControl;
-using UnityEngine;
-
-
-namespace BindingsExample
+﻿namespace BindingsExample
 {
+	using InControl;
+	using UnityEngine;
+
+
 	public class PlayerActions : PlayerActionSet
 	{
 		public PlayerAction Fire;
@@ -32,16 +31,17 @@ namespace BindingsExample
 		{
 			var playerActions = new PlayerActions();
 
+			// How to set up mutually exclusive keyboard bindings with a modifier key.
+			// playerActions.Back.AddDefaultBinding( Key.Shift, Key.Tab );
+			// playerActions.Next.AddDefaultBinding( KeyCombo.With( Key.Tab ).AndNot( Key.Shift ) );
+
 			playerActions.Fire.AddDefaultBinding( Key.A );
 			playerActions.Fire.AddDefaultBinding( InputControlType.Action1 );
 			playerActions.Fire.AddDefaultBinding( Mouse.LeftButton );
-			playerActions.Fire.AddDefaultBinding( Mouse.PositiveScrollWheel );
 
 			playerActions.Jump.AddDefaultBinding( Key.Space );
 			playerActions.Jump.AddDefaultBinding( InputControlType.Action3 );
 			playerActions.Jump.AddDefaultBinding( InputControlType.Back );
-			playerActions.Jump.AddDefaultBinding( InputControlType.System );
-			playerActions.Jump.AddDefaultBinding( Mouse.NegativeScrollWheel );
 
 			playerActions.Up.AddDefaultBinding( Key.UpArrow );
 			playerActions.Down.AddDefaultBinding( Key.DownArrow );
@@ -64,12 +64,16 @@ namespace BindingsExample
 			playerActions.Right.AddDefaultBinding( Mouse.PositiveX );
 
 			playerActions.ListenOptions.IncludeUnknownControllers = true;
-			playerActions.ListenOptions.MaxAllowedBindings = 3;
-//			playerActions.ListenOptions.MaxAllowedBindingsPerType = 1;
-//			playerActions.ListenOptions.UnsetDuplicateBindingsOnSet = true;
+			playerActions.ListenOptions.MaxAllowedBindings = 4;
+			//playerActions.ListenOptions.MaxAllowedBindingsPerType = 1;
+			//playerActions.ListenOptions.AllowDuplicateBindingsPerSet = true;
+			playerActions.ListenOptions.UnsetDuplicateBindingsOnSet = true;
+			//playerActions.ListenOptions.IncludeMouseButtons = true;
+			//playerActions.ListenOptions.IncludeModifiersAsFirstClassKeys = true;
+			//playerActions.ListenOptions.IncludeMouseButtons = true;
+			//playerActions.ListenOptions.IncludeMouseScrollWheel = true;
 
-			playerActions.ListenOptions.OnBindingFound = ( action, binding ) =>
-			{
+			playerActions.ListenOptions.OnBindingFound = ( action, binding ) => {
 				if (binding == new KeyBindingSource( Key.Escape ))
 				{
 					action.StopListeningForBinding();
@@ -78,13 +82,11 @@ namespace BindingsExample
 				return true;
 			};
 
-			playerActions.ListenOptions.OnBindingAdded += ( action, binding ) =>
-			{
+			playerActions.ListenOptions.OnBindingAdded += ( action, binding ) => {
 				Debug.Log( "Binding added... " + binding.DeviceName + ": " + binding.Name );
 			};
 
-			playerActions.ListenOptions.OnBindingRejected += ( action, binding, reason ) =>
-			{
+			playerActions.ListenOptions.OnBindingRejected += ( action, binding, reason ) => {
 				Debug.Log( "Binding rejected... " + reason );
 			};
 

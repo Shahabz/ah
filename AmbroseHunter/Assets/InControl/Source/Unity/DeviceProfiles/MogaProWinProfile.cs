@@ -1,6 +1,3 @@
-using System;
-
-
 namespace InControl
 {
 	// @cond nodoc
@@ -9,10 +6,12 @@ namespace InControl
 	{
 		public MogaProWinProfile()
 		{
-			Name = "MOGA Pro Controller";
-			Meta = "MOGA Pro Controller on Windows";
+			Name = "Moga Pro Controller";
+			Meta = "Moga Pro Controller on Windows";
 
-			SupportedPlatforms = new[] {
+			DeviceClass = InputDeviceClass.Controller;
+
+			IncludePlatforms = new[] {
 				"Windows",
 			};
 
