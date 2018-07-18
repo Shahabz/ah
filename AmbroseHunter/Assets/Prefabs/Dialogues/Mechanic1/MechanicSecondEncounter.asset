@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7eba3453ef5e004698a260789d26826, type: 3}
+  m_Name: MechanicSecondEncounter
+  m_EditorClassIdentifier: 
+  DialogItems:
+  - dialogueText: So who do you know in this district?
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: Only a few mechanics here and there, I've only been here for a week
+      or so.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: I just arrived. Everyone in my city is dead.
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: Sorry to hear, I have lost most of my loved ones as well.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: A clan of thieves killed everyone I knew. I was driving on the outskirts
+      of my city when they came, I returned to a home ravaged by violence.
+    characterName: 1
+    dialogueTextDisplayTime: 2
+  - dialogueText: The thieves are around here as well, be careful.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: Yeah. What do you know about the Escape Freighter?
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: Not much - I don't have hope that I will be let on to it. I am just
+      living out my finals here in this district.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: Right. I probably won't either. We are both die soon so we might
+      as well enjoy our final moments.
+    characterName: 1
+    dialogueTextDisplayTime: 0

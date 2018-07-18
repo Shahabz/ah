@@ -431,7 +431,7 @@ public class AIHoverCar : CarMetrics {
 		if (angerCounter >= 3) {
 			SwitchToFightState ();
 		} else {
-		//	BarkManager.s_instance.Bark (BarkManager.s_instance.m_tooCloseBarksArray);
+			//BarkManager.s_instance.Bark (BarkManager.s_instance.m_tooCloseBarksArray);
 		}
 
 	}

@@ -282,8 +282,6 @@ public class TestPlayerController : MonoBehaviour {
 		for (int i = 0; i < cols.Length; i++) {
 			if (cols [i].GetComponent<IContextInteractable> () != null && cols [i].GetComponent<IContextInteractable> ().CanInteract()) {
 				interactables.Add (cols [i].gameObject);
-				print ("HANDLED BUSINESS");	
-
 			}
 		}
 		if (interactables.Count > 0) {

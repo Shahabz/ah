@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!121 &12100000
+Flare:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Indy80sFlare002
+  m_FlareTexture: {fileID: 2800000, guid: 43eaa449782460a44a0d67a90d25dbce, type: 3}
+  m_TextureLayout: 0
+  m_Elements:
+  - m_ImageIndex: 9
+    m_Position: -0.09
+    m_Size: 33.36
+    m_Color: {r: 0.12877564, g: 0.053287197, b: 0.1764706, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 0
+    m_Zoom: 1
+    m_Fade: 1
+  - m_ImageIndex: 0
+    m_Position: 0
+    m_Size: 21.38
+    m_Color: {r: 0.19577207, g: 0.37209418, b: 0.52205884, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 1
+    m_Zoom: 1
+    m_Fade: 1
+  - m_ImageIndex: 1
+    m_Position: 0.62
+    m_Size: 0.88
+    m_Color: {r: 0.73679364, g: 0.45334125, b: 0.9485294, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 0
+    m_Zoom: 0
+    m_Fade: 1
+  - m_ImageIndex: 3
+    m_Position: 0.12
+    m_Size: 9.37
+    m_Color: {r: 0.06271627, g: 0.32975787, b: 0.85294116, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 0
+    m_Zoom: 0
+    m_Fade: 1
+  - m_ImageIndex: 2
+    m_Position: 0.34
+    m_Size: 4.13
+    m_Color: {r: 0.3372549, g: 0.08464436, b: 0.32951477, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 0
+    m_Zoom: 0
+    m_Fade: 1
+  - m_ImageIndex: 3
+    m_Position: -0.16
+    m_Size: 10.21
+    m_Color: {r: 0.16219722, g: 0.16741732, b: 0.9191176, a: 1}
+    m_UseLightColor: 1
+    m_Rotate: 0
+    m_Zoom: 0
+    m_Fade: 1
+  m_UseFog: 1
+--- !u!1002 &12100001
+EditorExtensionImpl:
+  serializedVersion: 6

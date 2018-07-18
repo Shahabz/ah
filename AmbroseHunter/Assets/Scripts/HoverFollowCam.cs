@@ -24,7 +24,7 @@ public class HoverFollowCam : MonoBehaviour
 	void Update()
 	{
 		transform.LookAt(new Vector3(player.position.x, player.position.y+verticalLookOffset, player.position.z));
-
+        GetComponent<Camera>().fieldOfView = 60;
 
 	}
 

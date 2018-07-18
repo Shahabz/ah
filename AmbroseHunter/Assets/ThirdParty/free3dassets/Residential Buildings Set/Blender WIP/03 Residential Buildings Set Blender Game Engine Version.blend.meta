@@ -1,14 +1,263 @@
 fileFormatVersion: 2
 guid: 606ccbcdbc4faad409bca43b42d11e8b
-timeCreated: 1502338138
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName: {}
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box_2
+    100004: Box_3
+    100006: CameraE
+    100008: Cube_039
+    100010: Cube_040
+    100012: Cube_041
+    100014: Cube_042
+    100016: Cube_043
+    100018: Cube_044
+    100020: Empty_022
+    100022: Empty_023
+    100024: Empty_031
+    100026: Filter_2D
+    100028: Hit_Cube
+    100030: Hit_Cube2
+    100032: Hit_Cube3
+    100034: Hit_Cube4
+    100036: Hit_Cube5
+    100038: Light_Control_Empty
+    100040: LM_003
+    100042: Plane_028
+    100044: PlayerBox
+    100046: softcube_001
+    100048: softcube_2
+    100050: Sphere_000
+    100052: Sphere_001
+    100054: Sphere_002
+    100056: Sphere_003
+    100058: Sphere_004
+    100060: Sphere_005
+    100062: Sphere_012
+    100064: Sphere_013
+    100066: Text_001
+    100068: Tile_1
+    100070: Tile_2
+    100072: Tile_3
+    100074: Time_Empty
+    400000: //RootNode
+    400002: Box_2
+    400004: Box_3
+    400006: CameraE
+    400008: Cube_039
+    400010: Cube_040
+    400012: Cube_041
+    400014: Cube_042
+    400016: Cube_043
+    400018: Cube_044
+    400020: Empty_022
+    400022: Empty_023
+    400024: Empty_031
+    400026: Filter_2D
+    400028: Hit_Cube
+    400030: Hit_Cube2
+    400032: Hit_Cube3
+    400034: Hit_Cube4
+    400036: Hit_Cube5
+    400038: Light_Control_Empty
+    400040: LM_003
+    400042: Plane_028
+    400044: PlayerBox
+    400046: softcube_001
+    400048: softcube_2
+    400050: Sphere_000
+    400052: Sphere_001
+    400054: Sphere_002
+    400056: Sphere_003
+    400058: Sphere_004
+    400060: Sphere_005
+    400062: Sphere_012
+    400064: Sphere_013
+    400066: Text_001
+    400068: Tile_1
+    400070: Tile_2
+    400072: Tile_3
+    400074: Time_Empty
+    2300000: Box_2
+    2300002: Box_3
+    2300004: Cube_039
+    2300006: Cube_040
+    2300008: Cube_041
+    2300010: Cube_042
+    2300012: Cube_043
+    2300014: Cube_044
+    2300016: Hit_Cube
+    2300018: Hit_Cube2
+    2300020: Hit_Cube3
+    2300022: Hit_Cube4
+    2300024: Hit_Cube5
+    2300026: LM_003
+    2300028: Plane_028
+    2300030: PlayerBox
+    2300032: softcube_001
+    2300034: softcube_2
+    2300036: Sphere_000
+    2300038: Sphere_001
+    2300040: Sphere_002
+    2300042: Sphere_003
+    2300044: Sphere_004
+    2300046: Sphere_005
+    2300048: Sphere_012
+    2300050: Sphere_013
+    2300052: Text_001
+    2300054: Tile_1
+    2300056: Tile_2
+    2300058: Tile_3
+    3300000: Box_2
+    3300002: Box_3
+    3300004: Cube_039
+    3300006: Cube_040
+    3300008: Cube_041
+    3300010: Cube_042
+    3300012: Cube_043
+    3300014: Cube_044
+    3300016: Hit_Cube
+    3300018: Hit_Cube2
+    3300020: Hit_Cube3
+    3300022: Hit_Cube4
+    3300024: Hit_Cube5
+    3300026: LM_003
+    3300028: Plane_028
+    3300030: PlayerBox
+    3300032: softcube_001
+    3300034: softcube_2
+    3300036: Sphere_000
+    3300038: Sphere_001
+    3300040: Sphere_002
+    3300042: Sphere_003
+    3300044: Sphere_004
+    3300046: Sphere_005
+    3300048: Sphere_012
+    3300050: Sphere_013
+    3300052: Text_001
+    3300054: Tile_1
+    3300056: Tile_2
+    3300058: Tile_3
+    4300000: Cube_044
+    4300002: Cube_043
+    4300004: Cube_039
+    4300006: Cube_040
+    4300008: Cube_041
+    4300010: Cube_042
+    4300012: Sphere_013
+    4300014: Sphere_012
+    4300016: softcube_001
+    4300018: softcube_2
+    4300020: Hit_Cube5
+    4300022: Sphere_004
+    4300024: Hit_Cube4
+    4300026: Sphere_003
+    4300028: Hit_Cube3
+    4300030: Sphere_002
+    4300032: Hit_Cube2
+    4300034: Sphere_000
+    4300036: PlayerBox
+    4300038: Sphere_005
+    4300040: Text_001
+    4300042: Hit_Cube
+    4300044: Sphere_001
+    4300046: LM_003
+    4300048: Plane_028
+    4300050: Box_2
+    4300052: Box_3
+    4300054: Tile_1
+    4300056: Tile_2
+    4300058: Tile_3
+    7400000: Default Take
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gras__Grass_col_JPG
+    second: {fileID: 2100000, guid: b128375a8db099845a26bf5e7e6b1285, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_004
+    second: {fileID: 2100000, guid: ed4b41610bed99f44ad6e90f3d76a558, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_007
+    second: {fileID: 2100000, guid: 702b4ab7214945b4b8141e50e3b02dfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_008
+    second: {fileID: 2100000, guid: 0d44a46e199f9f540865ae4a18b60bbc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_019
+    second: {fileID: 2100000, guid: 0fe8beb91851b694db3d9c042f119db2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_024
+    second: {fileID: 2100000, guid: 69de9e8df3aadf2408cf40216bc1495b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_027
+    second: {fileID: 2100000, guid: 4110a1bbc67d69a48afad81ddd43f94b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_028
+    second: {fileID: 2100000, guid: 4036cd67ed459ca4f8a11317e91e6ce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_034__WCtiles_N_jpg
+    second: {fileID: 2100000, guid: 9fa8d7173ae3be94db8210b3933b6c0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_035
+    second: {fileID: 2100000, guid: 3d17650440a9c734b9f9621bb920f270, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_036__SKY_jpg
+    second: {fileID: 2100000, guid: ea00c328547d4494ab3f4b6717be34fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood__Box_Col
+    second: {fileID: 2100000, guid: f63016dc96af8f943bf7e0a2892b5f68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground__Hotel_Hous_AO
+    second: {fileID: 2100000, guid: 87eb1920501502a41ad574832fffddae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hit
+    second: {fileID: 2100000, guid: 3b2328eeacd4fca4a9c0658c8916dc32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hotel_glas
+    second: {fileID: 2100000, guid: 3798a843d7d368c4597756ed9b7f9aa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: c4a046fb84cadf44193adbd327873a0a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -21,6 +270,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -45,11 +296,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

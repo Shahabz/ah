@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7eba3453ef5e004698a260789d26826, type: 3}
+  m_Name: MechanicFirstEncounter
+  m_EditorClassIdentifier: 
+  DialogItems:
+  - dialogueText: Did your dad ever get mad at you for playing too many video games?
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: He did not have to, I never had the chance to play video games.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: Lucky you. I wish I did not waste so much time playing video games
+      when I was younger...
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: Video games always seemed like waste of time to me, there is so
+      much more to do in life.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: So what is your role here?
+    characterName: 1
+    dialogueTextDisplayTime: 2
+  - dialogueText: I am a mechanic - I repair damaged cars in my workshop.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: What do I do if I want to be repaired?
+    characterName: 1
+    dialogueTextDisplayTime: 0
+  - dialogueText: Just drive up to my workshop and we will go from there.
+    characterName: 0
+    dialogueTextDisplayTime: 0
+  - dialogueText: Alright, thanks, I will keep in mind.
+    characterName: 1
+    dialogueTextDisplayTime: 0

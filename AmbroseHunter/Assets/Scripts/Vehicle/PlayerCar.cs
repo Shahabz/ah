@@ -96,9 +96,15 @@ public class PlayerCar : CarMetrics
 	void OnEnable()
 	{
 		StartCarCoolDown = 0;
-	}
+        headLights[0].gameObject.SetActive(true);
+        headLights[1].gameObject.SetActive(true);
+        tailLights[0].gameObject.SetActive(true);
+        tailLights[1].gameObject.SetActive(true);
 
-	void OnDisable(){
+
+    }
+
+    void OnDisable(){
 
 	}
 
@@ -240,8 +246,8 @@ public class PlayerCar : CarMetrics
 
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "NPC") {
-		//	other.GetComponent<AIHoverCar> ().isCloseToPlayer = true;
-		//	other.GetComponent<AIHoverCar> ().currentTarget = transform;
+			other.GetComponent<AIHoverCar> ().isCloseToPlayer = true;
+			other.GetComponent<AIHoverCar> ().currentTarget = transform;
 			currentTarget = other.transform;
 		}
 
@@ -253,8 +259,8 @@ public class PlayerCar : CarMetrics
 
 	void OnTriggerExit (Collider other) {
 		if (other.tag == "NPC") {
-		//	other.GetComponent<AIHoverCar> ().isCloseToPlayer = false;
-		//	other.GetComponent<AIHoverCar> ().currentTarget = null;
+			other.GetComponent<AIHoverCar> ().isCloseToPlayer = false;
+			other.GetComponent<AIHoverCar> ().currentTarget = null;
 			currentTarget = null;
 		}
 

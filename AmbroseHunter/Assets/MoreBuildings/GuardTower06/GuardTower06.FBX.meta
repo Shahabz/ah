@@ -1,13 +1,32 @@
 fileFormatVersion: 2
 guid: 2f4347b351c99494fb8811bf77561b92
-timeCreated: 18446744011573954816
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: GuardTower06
     4300002: GuardTower06Glass
     4300004: Object01
-  externalObjects: {}
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GuardTower06
+    second: {fileID: 2100000, guid: 6bf0cc858c730104eb9addf3c3bee8b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GuardTower06AlphaCut
+    second: {fileID: 2100000, guid: 9819f7d9a3ae8f246a7787e53faf4578, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GuardTower06AlphaFull
+    second: {fileID: 2100000, guid: 7b98f43b42eea954abfc787a76f9b705, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -26,6 +45,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -57,6 +77,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

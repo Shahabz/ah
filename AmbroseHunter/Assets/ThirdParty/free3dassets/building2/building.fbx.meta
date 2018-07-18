@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: b175796296d7c404bbaffa56c0456b75
-timeCreated: 1502338154
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Camera
@@ -28,10 +26,78 @@ ModelImporter:
     4300002: Cube.001
     4300004: Cube
     10800000: Lamp.000
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AC
+    second: {fileID: 2100000, guid: 2aecbb47aa075914795d12ebba946feb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 8a4cca4b23f2e4343abbcb44a4b21ddd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: brack
+    second: {fileID: 2100000, guid: b2984976899ffa941a974f9e66b96bfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door
+    second: {fileID: 2100000, guid: 77f19c6b04169eb40a7914fb46b9342b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door2
+    second: {fileID: 2100000, guid: 1bcf0680e3cf2734baaf92e688fc442b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iron
+    second: {fileID: 2100000, guid: 98bd3ee92b45a284db40572116e7ab58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: store
+    second: {fileID: 2100000, guid: 66c5d466c393c764985c52f858248099, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: 71971a50b915f8640abd1466e2ee4f3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: w2
+    second: {fileID: 2100000, guid: 1d338236cf417ea409337b5f5f1bf0b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wf
+    second: {fileID: 2100000, guid: fe38530060d1c274787c63e3fa253a46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window1
+    second: {fileID: 2100000, guid: 7b85da6eb8c14df4f9d0ef7ebba12f08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window2
+    second: {fileID: 2100000, guid: ab794f27e79ce9448849341297040893, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window3
+    second: {fileID: 2100000, guid: 98c0972f6134e2244b86be99a4c4fc74, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -44,6 +110,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -68,11 +136,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

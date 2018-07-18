@@ -1,14 +1,88 @@
 fileFormatVersion: 2
 guid: 0883f8bfc68db474ab68421118023aec
-timeCreated: 1502338012
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName: {}
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Plane
+    100002: Plane_001
+    100004: Plane_002
+    100006: Plane_003
+    100008: Plane_004
+    100010: Plane_005
+    100012: Plane_006
+    100014: Plane_007
+    100016: //RootNode
+    400000: Plane
+    400002: Plane_001
+    400004: Plane_002
+    400006: Plane_003
+    400008: Plane_004
+    400010: Plane_005
+    400012: Plane_006
+    400014: Plane_007
+    400016: //RootNode
+    2300000: Plane
+    2300002: Plane_001
+    2300004: Plane_002
+    2300006: Plane_003
+    2300008: Plane_004
+    2300010: Plane_005
+    2300012: Plane_006
+    2300014: Plane_007
+    3300000: Plane
+    3300002: Plane_001
+    3300004: Plane_002
+    3300006: Plane_003
+    3300008: Plane_004
+    3300010: Plane_005
+    3300012: Plane_006
+    3300014: Plane_007
+    4300000: Plane_007
+    4300002: Plane_006
+    4300004: Plane_004
+    4300006: Plane_005
+    4300008: Plane_003
+    4300010: Plane_002
+    4300012: Plane_001
+    4300014: Plane
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 614bd7e3753d3184fb3f65a010559b28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bricks
+    second: {fileID: 2100000, guid: 86f16ca890803e9439599454ff752797, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: a5d12f64997d02941baafc6f07e34ddb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: acc376c4df940d64b92dbef1b3a79191, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: c49ee9b7bf4e6a64ca85411d956539b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unnamed
+    second: {fileID: 2100000, guid: 8c18f9f4f0fedc54082f429ce7e26158, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -21,6 +95,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -45,11 +121,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

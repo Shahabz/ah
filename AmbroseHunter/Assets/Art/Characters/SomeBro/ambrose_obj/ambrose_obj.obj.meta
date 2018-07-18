@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 90a48d557ccf3924fb0b74ef905c3aed
-timeCreated: 1520121536
-licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Body
@@ -26,6 +24,13 @@ ModelImporter:
     2100004: Hair
     2100006: Shoes
     2100008: Top
+    2100010: BodyMat
+    2100012: BottomsMat
+    2100014: defaultMat
+    2100016: EyesMat
+    2100018: HairMat
+    2100020: ShoesMat
+    2100022: TopsMat
     2300000: Body
     2300002: Bottoms
     2300004: default
@@ -66,6 +71,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -97,6 +103,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

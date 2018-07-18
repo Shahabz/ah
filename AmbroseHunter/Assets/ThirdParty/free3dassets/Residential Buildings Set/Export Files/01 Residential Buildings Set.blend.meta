@@ -1,14 +1,78 @@
 fileFormatVersion: 2
 guid: 64b4cd7e00f0a374e9471e909d953802
-timeCreated: 1502338138
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName: {}
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Residential_Buildings_001
+    100004: Residential_Buildings_002
+    100006: Residential_Buildings_003
+    100008: Residential_Buildings_004
+    100010: Residential_Buildings_005
+    100012: Residential_Buildings_006
+    100014: Residential_Buildings_007
+    100016: Residential_Buildings_008
+    100018: Residential_Buildings_009
+    100020: Residential_Buildings_010
+    400000: //RootNode
+    400002: Residential_Buildings_001
+    400004: Residential_Buildings_002
+    400006: Residential_Buildings_003
+    400008: Residential_Buildings_004
+    400010: Residential_Buildings_005
+    400012: Residential_Buildings_006
+    400014: Residential_Buildings_007
+    400016: Residential_Buildings_008
+    400018: Residential_Buildings_009
+    400020: Residential_Buildings_010
+    2300000: Residential_Buildings_001
+    2300002: Residential_Buildings_002
+    2300004: Residential_Buildings_003
+    2300006: Residential_Buildings_004
+    2300008: Residential_Buildings_005
+    2300010: Residential_Buildings_006
+    2300012: Residential_Buildings_007
+    2300014: Residential_Buildings_008
+    2300016: Residential_Buildings_009
+    2300018: Residential_Buildings_010
+    3300000: Residential_Buildings_001
+    3300002: Residential_Buildings_002
+    3300004: Residential_Buildings_003
+    3300006: Residential_Buildings_004
+    3300008: Residential_Buildings_005
+    3300010: Residential_Buildings_006
+    3300012: Residential_Buildings_007
+    3300014: Residential_Buildings_008
+    3300016: Residential_Buildings_009
+    3300018: Residential_Buildings_010
+    4300000: Residential_Buildings_008
+    4300002: Residential_Buildings_009
+    4300004: Residential_Buildings_010
+    4300006: Residential_Buildings_005
+    4300008: Residential_Buildings_007
+    4300010: Residential_Buildings_004
+    4300012: Residential_Buildings_003
+    4300014: Residential_Buildings_002
+    4300016: Residential_Buildings_006
+    4300018: Residential_Buildings_001
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 5e77e6a5048e458428a9c57d89beda0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground__House_AO
+    second: {fileID: 2100000, guid: 0c0a6b554e8c5bf44a5067c6ab79b13d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -21,6 +85,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -45,11 +111,15 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
