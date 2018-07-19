@@ -19,11 +19,12 @@ public class PlayerController : MonoBehaviour {
         if (bDebugStartInCar)
         {
             Vector3 startPos = GameObject.Find("DebugStartPositionCar").transform.position;
-            SwitchToDrivingState();
             foreach (GameObject x in DrivingStateGameObjects)
             {
                 x.transform.position = startPos;
             }
+            SwitchToDrivingState();
+
         }
     }
 
