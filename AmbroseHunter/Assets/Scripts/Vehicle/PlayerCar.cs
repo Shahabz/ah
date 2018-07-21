@@ -239,7 +239,6 @@ public class PlayerCar : CarMetrics
 				m_body.AddForce (transform.forward * currThrust);
 			} else {
 				m_body.AddForce (transform.forward * currThrust);
-				//correct rotation
 			}
 		}
 	}

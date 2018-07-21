@@ -76,6 +76,7 @@ public class CarMetrics : MonoBehaviour {
 	}
 
 	protected void StabilizeMidAir () {
+        Debug.Log("STABILIZING");
 		if (Mathf.Abs (transform.rotation.eulerAngles.x) > 1f) {
 			float negOrPosVal = (transform.rotation.eulerAngles.x < 180) || (transform.rotation.eulerAngles.x < 0) ? -1f : 1f;
 			transform.Rotate (negOrPosVal * 0.01f, 0, 0);
@@ -95,9 +96,9 @@ public class CarMetrics : MonoBehaviour {
 				isTouchingGround = true;
 			} else {
 				isTouchingGround = false;
-				//StabilizeMidAir ();
+				StabilizeMidAir ();
 				//push back to earth
-				m_body.AddForceAtPosition(Vector3.up*-1000, transform.position);
+				m_body.AddForceAtPosition(Vector3.up*-4000, transform.position);
 				if (transform.position.y > hoverPoint.transform.position.y) {
 					m_body.AddForceAtPosition (hoverPoint.transform.up * stabilizeForce, hoverPoint.transform.position);
 				} else {

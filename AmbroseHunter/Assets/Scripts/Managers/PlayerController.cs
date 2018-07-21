@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     bool bDebugStartInCar;
 
-    private void Start()
+    void Start()
     {
         if (bDebugStartInCar)
         {
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void SwitchToWalkingState()
+	public void SwitchToDrivingState()
 	{
 		foreach (GameObject go in WalkingStateGameObjects) {
 			go.SetActive (false);
@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	public void SwitchToDrivingState()
-	{
+	public void SwitchToWalkingState()
+    {
 		foreach (GameObject go in WalkingStateGameObjects) {
 			go.SetActive (true);
 		}
