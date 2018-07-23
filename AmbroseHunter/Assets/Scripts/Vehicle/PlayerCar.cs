@@ -135,6 +135,7 @@ public class PlayerCar : CarMetrics
 			HandleLeftStickHorizontal ();
 			HandleRightStickHorizontal ();
 			HandleInteraction();
+            AfterburnerBoost();
 			//Interaction Functions
 
 			#endregion
@@ -157,11 +158,16 @@ public class PlayerCar : CarMetrics
 	//	Camera.main.GetComponent<HoverFollowCam> ().thisCameraMode = HoverFollowCam.CameraMode.targetMode;
 	}
 
-	void AfterburnerBoost() {
-		if (!isBoosting) {
-			isBoosting = true;
-			StartCoroutine ("IsBoosting");
-		}
+    void AfterburnerBoost()
+    {
+        if (input.sprint)
+        { 
+            if (!isBoosting)
+            {
+                 isBoosting = true;
+                 StartCoroutine("IsBoosting");
+            }
+        }
 	}
 
 	void HandleLeftStickVertical () {
@@ -235,9 +241,12 @@ public class PlayerCar : CarMetrics
 
 		if (currMovementState == MovementState.Drive) {
 			// Forward
-			if (Mathf.Abs (currThrust) > 0 && isTouchingGround) {
+			if (Mathf.Abs (currThrust) > 0 && isTouchingGround)
+            {
 				m_body.AddForce (transform.forward * currThrust);
-			} else {
+			}
+            else
+            {
 				m_body.AddForce (transform.forward * currThrust);
 			}
 		}

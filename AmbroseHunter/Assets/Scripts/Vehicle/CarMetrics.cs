@@ -76,7 +76,6 @@ public class CarMetrics : MonoBehaviour {
 	}
 
 	protected void StabilizeMidAir () {
-        Debug.Log("STABILIZING");
 		if (Mathf.Abs (transform.rotation.eulerAngles.x) > 1f) {
 			float negOrPosVal = (transform.rotation.eulerAngles.x < 180) || (transform.rotation.eulerAngles.x < 0) ? -1f : 1f;
 			transform.Rotate (negOrPosVal * 0.01f, 0, 0);
