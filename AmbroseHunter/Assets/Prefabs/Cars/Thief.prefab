@@ -252,8 +252,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141710}
-  m_LocalRotation: {x: 0, y: 0.99879336, z: 0, w: -0.049111437}
-  m_LocalPosition: {x: 64.6, y: 154.21, z: 571.7}
+  m_LocalRotation: {x: -0, y: 0.67149794, z: -0, w: -0.74100655}
+  m_LocalPosition: {x: -114.3, y: -0.09999988, z: 2949.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 437874}
@@ -264,7 +264,7 @@ Transform:
   - {fileID: 462650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -84.366005, z: 0}
 --- !u!4 &435028
 Transform:
   m_ObjectHideFlags: 1
@@ -668,25 +668,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGas: 50
   maxGas: 50
-  currentHealth: 1
+  currentHealth: 10
   maxHealth: 100
   currentReputation: 50
   maxReputation: 50
   currentStamina: 0
   maxStamina: 100
-  headLights: []
-  tailLights: []
-  blackened: {fileID: 0}
-  m_hoverPoints: []
-  hoverForce: 100
-  stabilizeForce: 10
-  hoverHeight: 1.5
-  accelerateStrength: 30000
+  headLights:
+  - {fileID: 10896746}
+  - {fileID: 10886722}
+  tailLights:
+  - {fileID: 10816298}
+  - {fileID: 10845794}
+  blackened: {fileID: 2100000, guid: 2a91f6ba61b9c4b4081b5995e5786b8c, type: 2}
+  m_hoverPoints:
+  - {fileID: 498914}
+  - {fileID: 412506}
+  - {fileID: 487790}
+  - {fileID: 417486}
+  hoverForce: 3000
+  stabilizeForce: 30
+  hoverHeight: 1
+  accelerateStrength: 10000
   turnStrength: 5000
   strafeStrength: 10000
   receiversOfMessageSwitchToFightState: []
   angerCounterUntilFight: 3
-  smoke: {fileID: 0}
+  smoke: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 2}
   spark: {fileID: 100000, guid: c994fde8e6848a3771503f184e0c9cb4, type: 2}
   deathExplosion: {fileID: 100004, guid: 169b10ce10f4327cb9f40f6b117ed8d7, type: 2}
   currentTarget: {fileID: 0}
