@@ -1,17 +1,21 @@
 fileFormatVersion: 2
-guid: c0054311dd8ce864693ea10594e8d5a6
+guid: 02907e9deefd84f88823210f5432e8fb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: WaterTower06
-    100002: //RootNode
-    400000: WaterTower06
-    400002: //RootNode
-    2100000: WaterTower06
-    2300000: WaterTower06
-    3300000: WaterTower06
-    4300000: WaterTower06
-    2186277476908879412: ImportLogs
+    100000: Cage
+    100002: Door
+    100004: //RootNode
+    400000: Cage
+    400002: Door
+    400004: //RootNode
+    2100000: Cage
+    2300000: Cage
+    2300002: Door
+    3300000: Cage
+    3300002: Door
+    4300000: Cage
+    4300002: Door
   externalObjects: {}
   materials:
     importMaterials: 1
