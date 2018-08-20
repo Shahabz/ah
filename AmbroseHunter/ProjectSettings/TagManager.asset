@@ -9,6 +9,8 @@ TagManager:
   - Interactable
   - Ramp
   - NPC
+  - footstep
+  - foot
   layers:
   - Default
   - TransparentFX

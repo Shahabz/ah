@@ -100,7 +100,7 @@ public class TestPlayerController : MonoBehaviour {
     void Start () {
 		barkSource = GetComponent<AudioSource> ();
 		GetComponentInChildren<Camera>().transform.parent = null;
-        footstepHandler = GetComponent<FootstepHandler>();
+        footstepHandler = GetComponentInChildren<FootstepHandler>();
 		input = GetComponent<BaseInput>();
 		rigidbody = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
@@ -185,10 +185,10 @@ public class TestPlayerController : MonoBehaviour {
 		anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude + anim.GetFloat("Movement"), 14f*Time.deltaTime));
 
 		if (input.moveDir.magnitude > 0.0f) {
-			//footstepHandler.PlayFootStep(Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Movement")/2f, 14f*Time.deltaTime)); //this is always 1, I need to figure out how to differentiate between running and walking and pass it to this param
+			footstepHandler.PlayFootStep(Mathf.Lerp(anim.GetFloat("Movement"), input.moveDir.normalized.magnitude/2f + anim.GetFloat("Movement")/2f, 14f*Time.deltaTime)); //this is always 1, I need to figure out how to differentiate between running and walking and pass it to this param
 			anim.SetFloat("Movement", input.sprint ? Mathf.Lerp(anim.GetFloat("Movement"), 1f, 5f*Time.deltaTime) :  Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
 		} else {
-			//footstepHandler.CallCeaseFootStep();
+			footstepHandler.CallCeaseFootStep();
 			anim.SetFloat("Movement", Mathf.Lerp(anim.GetFloat("Movement"), 0f, 5f*Time.deltaTime));
 		}
 	}
