@@ -262,11 +262,13 @@ public class TestPlayerController : MonoBehaviour {
 		if (CheckForInteractablesTimer > .05f) {
 			CheckForInteractablesTimer = 0;
 			FindAllInteractionInInteractionZone();
+            //TODO make this work for multiple interactables next to each other
 			if (interactables.Count > 0) {
-				//show prompt for this
-
+                //show prompt for this
+                TextManager.s_instance.SetPromptUntimed(interactables[0].GetComponent<IContextInteractable>().GetPrompt());
 			} else {
-				//hide prompt
+                //hide prompt
+                TextManager.s_instance.ClearPrompt();
 			}
 		}
 
@@ -276,7 +278,7 @@ public class TestPlayerController : MonoBehaviour {
 
 	void FindAllInteractionInInteractionZone()
 	{
-
+        //Handles whether items are still interactable or not by checking CanInteract
 		Vector3 center = transform.position + transform.forward + transform.up;
 		Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
 		for (int i = 0; i < cols.Length; i++) {
@@ -291,7 +293,10 @@ public class TestPlayerController : MonoBehaviour {
 					closest = interactables [i];
 				}
 				closestInteractableObject = closest;
-
+                if (!closestInteractableObject.GetComponent<IContextInteractable>().CanInteract())
+                {
+                    interactables.Clear();
+                }
 			}
 		}
 	}

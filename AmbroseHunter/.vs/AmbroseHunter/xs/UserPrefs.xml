@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{C6B76C2A-1FEA-2833-7306-0A3948E6244F}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Audio/footsteps/FootstepHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/TextManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/ZackScripts/TestPlayerController.cs" Line="102" Column="56" />
+      <File FileName="Assets/Scripts/ZackScripts/TestPlayerController.cs" Line="25" Column="39" />
       <File FileName="Assets/Audio/footsteps/FootstepHandler.cs" Line="40" Column="120" />
+      <File FileName="Assets/Scripts/DoorLogic.cs" Line="70" Column="38" />
+      <File FileName="Assets/Scripts/Managers/TestUIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI/TextManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

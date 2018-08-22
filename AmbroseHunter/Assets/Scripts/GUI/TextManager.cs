@@ -68,6 +68,16 @@ public class TextManager : MonoBehaviour {
 		showPrompt = true;
 	}
 
+    public void SetPromptUntimed(string inString)
+    {
+        prompt.text = inString;
+    }
+
+    public void ClearPrompt()
+    {
+        prompt.text = "";
+    }
+
 	bool isShowingTypeWriterEffect;
 	public bool GetIsTypeWriting(){
 		return isShowingTypeWriterEffect;
