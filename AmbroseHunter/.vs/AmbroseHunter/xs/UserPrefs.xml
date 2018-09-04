@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{C6B76C2A-1FEA-2833-7306-0A3948E6244F}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ZackScripts/TestPlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InteractEvent.cs">
     <Files>
       <File FileName="Assets/Scripts/ZackScripts/TestPlayerController.cs" Line="21" Column="17" />
       <File FileName="Assets/Audio/footsteps/FootstepHandler.cs" Line="40" Column="120" />
@@ -8,6 +8,7 @@
       <File FileName="Assets/Scripts/Managers/TestUIManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GUI/TextManager.cs" Line="76" Column="17" />
       <File FileName="Assets/Scripts/RotateInfinite.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/InteractEvent.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

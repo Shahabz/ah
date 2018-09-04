@@ -7,6 +7,7 @@ public class InteractEvent : MonoBehaviour, IContextInteractable {
 
 	public UnityEvent OnInteractEvents;
 	bool hasPlayed;
+    public string prompt = "";
 	public bool infinitelyTriggerable;
 	public void Interact(TestPlayerController thisController) {
 		if (!hasPlayed)
@@ -22,6 +23,6 @@ public class InteractEvent : MonoBehaviour, IContextInteractable {
 
 	public string GetPrompt()
 	{
-		return "";
+        return prompt;
 	}
 }
