@@ -67,7 +67,7 @@ public class DoorLogic : MonoBehaviour, IContextInteractable {
 
 	public string GetPrompt()
 	{
-		return "Press Interact to Open Door";
+		return "Press F to Open Door";
 	}
 
 	public bool CanInteract()

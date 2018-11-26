@@ -280,7 +280,12 @@ public class TestPlayerController : MonoBehaviour {
 	{
         //Handles whether items are still interactable or not by checking CanInteract
 		Vector3 center = transform.position + transform.forward + transform.up;
-		Collider[] cols = Physics.OverlapSphere (center, 1.5f, LayerMask.GetMask ("Interactable"));
+		Collider[] cols = Physics.OverlapSphere (center, .5f, LayerMask.GetMask ("Interactable"));
+        if (cols.Length == 0)
+        {
+            interactables.Clear();
+            return;
+        }
 		for (int i = 0; i < cols.Length; i++) {
 			if (cols [i].GetComponent<IContextInteractable> () != null && cols [i].GetComponent<IContextInteractable> ().CanInteract()) {
 				interactables.Add (cols [i].gameObject);
