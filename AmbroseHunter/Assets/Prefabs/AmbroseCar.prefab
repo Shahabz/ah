@@ -986,8 +986,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  prompt: 
-  infinitelyTriggerable: 1
+  prompt: Press F to turn into a car.
+  infinitelyTriggerable: 0
 --- !u!135 &135859951663695770
 SphereCollider:
   m_ObjectHideFlags: 1
