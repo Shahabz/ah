@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4d00447754d47c8b58ca55a46effd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingStateGameObjects:
-  - {fileID: 0}
-  DrivingStateGameObjects:
-  - {fileID: 0}
+  WalkingStateGameObjects: []
+  DrivingStateGameObjects: []
   WalkingStateObjects:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   DrivingStateObjects:
   - {fileID: 0}
