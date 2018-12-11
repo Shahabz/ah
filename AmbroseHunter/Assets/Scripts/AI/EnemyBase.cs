@@ -22,9 +22,10 @@ public class EnemyBase : MonoBehaviour, IContextInteractable {
 		health = GetComponent<StateController> ().thisAIStats.maxHealth;
 	}
 
-	public virtual void Interact(TestPlayerController thisController) {
+	public virtual void Interact(GameObject thisController) {
 		if (animationName != "")
-			thisController.PlayAnimation (animationName, true);
+            if (thisController.GetComponent<TestPlayerController>())
+                thisController.GetComponent<TestPlayerController>().PlayAnimation (animationName, true);
 	}
 
 	public virtual bool CanInteract() {

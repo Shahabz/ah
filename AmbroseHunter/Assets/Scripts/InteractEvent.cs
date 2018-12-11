@@ -9,7 +9,7 @@ public class InteractEvent : MonoBehaviour, IContextInteractable {
 	bool hasPlayed;
     public string prompt = "";
 	public bool infinitelyTriggerable;
-	public void Interact(TestPlayerController thisController) {
+	public void Interact(GameObject thisController) {
 		if (!hasPlayed)
 			OnInteractEvents.Invoke ();
 		if (!infinitelyTriggerable)

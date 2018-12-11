@@ -51,7 +51,7 @@ public class DoorLogic : MonoBehaviour, IContextInteractable {
 		}
 	}
 
-	public void Interact(TestPlayerController thisPlayerController)
+	public void Interact(GameObject thisPlayerController)
 	{
 		if (!isOpening && !isClosing) {
 			if (!isOpened)

@@ -1,6 +1,6 @@
 ﻿//using System.Collections;
 //using System.Collections.Generic;
-//using UnityEngine;
+using UnityEngine;
 
 public interface IInteractable  {
     void Interact();
@@ -8,7 +8,7 @@ public interface IInteractable  {
 
 //interactable interface that can lose ability to be interacted with, and return a string for to tell player what the interaction will do
 public interface IContextInteractable {
-	void Interact(TestPlayerController thisController);
+	void Interact(GameObject thisController);
 	bool CanInteract();
 	string GetPrompt();
 }
