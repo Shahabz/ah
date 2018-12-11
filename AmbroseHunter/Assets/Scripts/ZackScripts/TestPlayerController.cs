@@ -27,8 +27,7 @@ public class TestPlayerController : MonoBehaviour {
 	Rigidbody rigidbody;
 	public Transform cameraObj;
 
-	List<GameObject> interactables = new List<GameObject> ();
-	GameObject closestInteractableObject;
+
 
 	public AudioClip[] allBarks;
 	public AudioSource barkSource;
@@ -42,7 +41,6 @@ public class TestPlayerController : MonoBehaviour {
 		lastbark = temp; 
 	}
 
-	float CheckForInteractablesTimer;
 
 	bool isStomp;
 	public void Stomp()
@@ -108,8 +106,6 @@ public class TestPlayerController : MonoBehaviour {
 	
 	void Update () {
 		HandleMovement ();
-		HandleInteraction ();
-		CheckForInteractables ();
 		//had to make this block of code to avoid loop glitches
 		if (bSwitch_InteractiveCutscene) {
 			SetPlayerMode (PlayerMode.InteractiveCutscene);
@@ -245,66 +241,7 @@ public class TestPlayerController : MonoBehaviour {
 		}
 	}
 
-	void HandleInteraction() {
-		if (NPInputManager.input.Interact.WasPressed) {
-			if (closestInteractableObject != null) {
-				closestInteractableObject.GetComponent<IContextInteractable> ().Interact (this);
-			}
-		}
-	}
-
-	void CheckForInteractables()
-	{
-		//we want to allow people to interact with an object
-		//when the object is in range and can be interactive, we want to display that hitting the action button
-		//will perform this contextual action
-		CheckForInteractablesTimer+=Time.deltaTime;
-		if (CheckForInteractablesTimer > .05f) {
-			CheckForInteractablesTimer = 0;
-			FindAllInteractionInInteractionZone();
-            //TODO make this work for multiple interactables next to each other
-			if (interactables.Count > 0) {
-                //show prompt for this
-                TextManager.s_instance.SetPromptUntimed(interactables[0].GetComponent<IContextInteractable>().GetPrompt());
-			} else {
-                //hide prompt
-                TextManager.s_instance.ClearPrompt();
-			}
-		}
-
-
-
-	}
-
-	void FindAllInteractionInInteractionZone()
-	{
-        //Handles whether items are still interactable or not by checking CanInteract
-		Vector3 center = transform.position + transform.forward + transform.up;
-		Collider[] cols = Physics.OverlapSphere (center, .5f, LayerMask.GetMask ("Interactable"));
-        if (cols.Length == 0)
-        {
-            interactables.Clear();
-            return;
-        }
-		for (int i = 0; i < cols.Length; i++) {
-			if (cols [i].GetComponent<IContextInteractable> () != null && cols [i].GetComponent<IContextInteractable> ().CanInteract()) {
-				interactables.Add (cols [i].gameObject);
-			}
-		}
-		if (interactables.Count > 0) {
-			GameObject closest = interactables [0];
-			for (int i = 1; i < interactables.Count; i++) {
-				if (Vector3.Distance (center, interactables [i].transform.position) < Vector3.Distance (center, closest.transform.position)) {
-					closest = interactables [i];
-				}
-				closestInteractableObject = closest;
-                if (!closestInteractableObject.GetComponent<IContextInteractable>().CanInteract())
-                {
-                    interactables.Clear();
-                }
-			}
-		}
-	}
+	
 
 
     public void EnterTherapy ()
