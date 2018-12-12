@@ -8,7 +8,7 @@ public class InteractableDetector : MonoBehaviour {
     GameObject closestInteractableObject;
 
     float CheckForInteractablesTimer;
-
+    public float interactionRange = .5f;
 
     void Update()
     {
@@ -55,7 +55,7 @@ public class InteractableDetector : MonoBehaviour {
     {
         //Handles whether items are still interactable or not by checking CanInteract
         Vector3 center = transform.position + transform.forward + transform.up;
-        Collider[] cols = Physics.OverlapSphere(center, .5f, LayerMask.GetMask("Interactable"));
+        Collider[] cols = Physics.OverlapSphere(center, interactionRange, LayerMask.GetMask("Interactable"));
         if (cols.Length == 0)
         {
             interactables.Clear();
