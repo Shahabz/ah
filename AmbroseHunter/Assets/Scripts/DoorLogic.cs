@@ -11,6 +11,7 @@ public class DoorLogic : MonoBehaviour, IContextInteractable {
     public AudioSource doorOpenSound;
 	public AudioSource doorCloseSound;
 	public Vector3 AxisOfRotation;
+    public Collider enableOnOpen;
 
 	// Use this for initialization
 
@@ -80,6 +81,10 @@ public class DoorLogic : MonoBehaviour, IContextInteractable {
 
     void OpenDoor()
     {
+        if(enableOnOpen)
+        {
+            enableOnOpen.enabled = true;
+        }
         isOpening = true;
         startTime = Time.time;
 		if (doorOpenSound)
@@ -89,7 +94,11 @@ public class DoorLogic : MonoBehaviour, IContextInteractable {
 
 	void CloseDoor()
 	{
-		isClosing = true;
+        if (enableOnOpen)
+        {
+            enableOnOpen.enabled = false;
+        }
+        isClosing = true;
 		startTime = Time.time;
 		if (doorCloseSound)
 			doorCloseSound.Play();
