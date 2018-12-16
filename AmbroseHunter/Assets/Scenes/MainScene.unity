@@ -6374,11 +6374,6 @@ Transform:
   m_Father: {fileID: 794659274}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
---- !u!65 &244711944 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 65941830054374186, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1268772574}
 --- !u!1001 &247681227
 Prefab:
   m_ObjectHideFlags: 0
@@ -10200,18 +10195,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1542978030031206, guid: c9ee8da4311bbfc48bb38d17be868f7a,
     type: 2}
   m_PrefabInternal: {fileID: 1268772574}
---- !u!114 &347336073
+--- !u!114 &347336073 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 347336072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114956833852156506, guid: c9ee8da4311bbfc48bb38d17be868f7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1268772574}
   m_Script: {fileID: 11500000, guid: 16c4b5f4b5d59f449badc84c29f3b2c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionRange: 10
 --- !u!1 &352158986
 GameObject:
   m_ObjectHideFlags: 0
@@ -37378,11 +37367,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4070279350630982, guid: 6d1ddcd1528cc0944b7ddd7753666b31, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.0005176052
+      value: 0.00051760476
       objectReference: {fileID: 0}
     - target: {fileID: 4070279350630982, guid: 6d1ddcd1528cc0944b7ddd7753666b31, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.0043324726
+      value: -0.004332473
       objectReference: {fileID: 0}
     - target: {fileID: 4461479673719010, guid: 6d1ddcd1528cc0944b7ddd7753666b31, type: 2}
       propertyPath: m_RootOrder
@@ -37875,11 +37864,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4938597662838938, guid: c9ee8da4311bbfc48bb38d17be868f7a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 20.04
@@ -37932,31 +37916,6 @@ Prefab:
       propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1911477516}
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[4].m_Target
-      value: 
-      objectReference: {fileID: 244711944}
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: set_enabled
-      objectReference: {fileID: 0}
-    - target: {fileID: 114937893472513132, guid: c9ee8da4311bbfc48bb38d17be868f7a,
-        type: 2}
-      propertyPath: OnInteractEvents.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ee8da4311bbfc48bb38d17be868f7a, type: 2}
   m_IsPrefabAsset: 0
@@ -44040,7 +43999,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  prompt: Who am I?
+  prompt: 'F: Who am I?'
   infinitelyTriggerable: 0
 --- !u!65 &1517135649
 BoxCollider:
