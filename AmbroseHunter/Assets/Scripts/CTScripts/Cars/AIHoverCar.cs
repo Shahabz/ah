@@ -257,6 +257,10 @@ public class AIHoverCar : CarMetrics {
 			thisAIState = AIState.Disabled;
 			ToggleLights (false);
 			BlackenCarMaterials ();
+            if (thisCarType == CarType.Thief)
+            {
+                CarKillQuest.s_instance.AddCarKill();  
+            }
 		}
 	}
 	#region WanderStateFunctions
@@ -438,9 +442,9 @@ public class AIHoverCar : CarMetrics {
 
 	void SwitchToFightState () {
 		thisAIState = AIState.Fight;
-		foreach (GameObject GO in receiversOfMessageSwitchToFightState) {
-			GO.SendMessage ("TriggerFightState");
-		}
+		//foreach (GameObject GO in receiversOfMessageSwitchToFightState) {
+			//GO.SendMessage ("TriggerFightState");
+		//}
 	}
 
 	void PlayerStoppedBeingTooClose () {

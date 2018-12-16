@@ -50,7 +50,7 @@ public class DialogueSystem : MonoBehaviour {
 			if (GetComponent<AudioSource> () || talkerOne == null)
 				talkerOne = GetComponent<AudioSource> ();
 		}
-		subtitlePanel = GameObject.FindGameObjectWithTag ("SubtitlePanel");
+		//subtitlePanel = GameObject.FindGameObjectWithTag ("SubtitlePanel");
 	}
 
     //TODO call from player input or some shit?

@@ -41,7 +41,8 @@ public class InteractableDetector : MonoBehaviour {
             if (interactables.Count > 0)
             {
                 //show prompt for this
-                TextManager.s_instance.SetPromptUntimed(interactables[0].GetComponent<IContextInteractable>().GetPrompt());
+                IContextInteractable temp = interactables[0].GetComponent<IContextInteractable>();
+                TextManager.s_instance.SetPromptUntimed(temp.GetPrompt());
             }
             else
             {
