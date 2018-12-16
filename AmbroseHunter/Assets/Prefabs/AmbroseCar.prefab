@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 114101361564694500}
   - component: {fileID: 114170880273476072}
   - component: {fileID: 114350693275247656}
+  - component: {fileID: 114956833852156506}
   m_Layer: 0
   m_Name: AmbroseCar
   m_TagString: Player
@@ -502,7 +503,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1542978030031206}
   m_LocalRotation: {x: -0, y: 0.0107515305, z: -0, w: -0.99994224}
-  m_LocalPosition: {x: 19.91, y: 0.45, z: 31.53}
+  m_LocalPosition: {x: 20.04, y: 0.45, z: 31.01}
   m_LocalScale: {x: 0.57754827, y: 0.57754827, z: 0.57754827}
   m_Children:
   - {fileID: 4512275550630306}
@@ -1006,10 +1007,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 65941830054374186}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   prompt: Press F to turn into a car.
   infinitelyTriggerable: 0
+--- !u!114 &114956833852156506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542978030031206}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c4b5f4b5d59f449badc84c29f3b2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 10
 --- !u!135 &135859951663695770
 SphereCollider:
   m_ObjectHideFlags: 1
